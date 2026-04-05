@@ -1,0 +1,1932 @@
+BasicMelee {
+    template melee_attack
+
+    graphics {
+        animation Default
+
+        damage_threshold_altanimations {
+            heavyMelee 10
+            heaviestMelee 20
+        }
+    }
+    
+    meta {
+        name "ABILITY_MELEEATTACK_NAME"
+        desc "ABILITY_MELEEATTACK_DESC"
+        animate_name false
+    }
+
+    target { 
+        max_aoe 1+bonus_melee_range
+        aoe_restrictions must_have_line_of_sight_unpurgable //TODO: MAKE THIS WORK PROPERLY IF ENLARGED
+    }
+}
+
+BasicMelee_Fighter {
+    variant_of BasicMelee
+    meta {
+        ability_icon BasicMelee
+        class Fighter
+    }
+}
+
+BasicBigMelee {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_BIGMELEEATTACK_NAME"
+        desc "ABILITY_BIGMELEEATTACK_DESC"
+        animate_name false
+    }
+
+    target { 
+        max_aoe 1+bonus_melee_range
+    }
+}
+
+BasicRanged {
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_LOBBEDSHOT_NAME"
+        desc "ABILITY_LOBBEDSHOT_DESC"
+        animate_name false
+    }
+
+    target {
+        min_range 3
+        max_range 5+bonus_range
+    }
+
+    damage_instance {
+        damage 4+bonus_ranged_damage
+    }
+}
+BasicRanged_Hunter {
+    variant_of BasicRanged
+    meta {
+        ability_icon BasicRanged
+        class Hunter
+    }
+}
+
+BasicRanged_1DMG {
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_LOBBEDSHOT1DMG_NAME"
+        desc "ABILITY_LOBBEDSHOT1DMG_DESC"
+        animate_name false
+    }
+
+    target {
+        min_range 3
+        max_range 5+bonus_range
+    }
+
+    damage_instance {
+        damage 1
+    }
+}
+
+BasicShortRanged {
+    template ranged_attack
+    
+    meta {
+        name "ABILITY_SHORTSHOT_NAME"
+        desc "ABILITY_SHORTSHOT_DESC"
+        animate_name false
+    }
+
+    target {
+        min_range 1
+        max_range 3+bonus_range
+    }
+}
+
+BasicMagicShortRanged {
+    template ranged_attack
+    
+    meta {
+        name "ABILITY_BASICMAGICSHORTRANGED_NAME"
+        desc "ABILITY_BASICMAGICSHORTRANGED_DESC"
+        animate_name false
+        class Mage
+    }
+
+    graphics {
+        projectile MagicSpikeProjectile//MagicMissileProjectileSmall
+        animation createmagic
+    }
+
+    target {
+        min_range 1
+        max_range 3+bonus_range
+    }
+
+    damage_instance {
+        damage 5+bonus_ranged_damage
+        type physical_spell
+        ranged true
+    }
+}
+
+BasicShortLobbed {
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_SHORTLOBBEDSHOT_NAME"
+        desc "ABILITY_SHORTLOBBEDSHOT_DESC"
+        animate_name false
+    }
+
+    target {
+        min_range 1
+        max_range 3+bonus_range
+    }
+}
+
+BasicStraightShot {
+    template straightshot_attack
+    
+    meta {
+        name "ABILITY_NAILTHROW_NAME"
+        desc "ABILITY_NAILTHROW_DESC"
+        animate_name false
+    }
+
+    graphics {
+        animation throwobject
+    }
+
+    target {
+        max_aoe 3+bonus_range
+    }
+
+    damage_instance {
+        damage 5+bonus_ranged_damage
+    }
+}
+
+BasicStraightShot_Thief {
+    variant_of BasicStraightShot
+    meta {
+        ability_icon BasicStraightShot
+        class Thief
+    }
+}
+
+BasicMedicMelee {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_MELEEHEAL_NAME"
+        desc "ABILITY_MELEEHEAL_DESC"
+        animate_name false
+        class Medic
+    }
+
+    graphics {
+        ally_animation lickAttack
+        animation Default
+    }
+
+    target { 
+        max_aoe 1+bonus_melee_range
+        aoe_restrictions must_have_line_of_sight_unpurgable
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+
+        effects {
+            ContextualHeal 1
+        }
+
+        elements [
+            Holy
+        ]
+    }
+}
+BasicMedicRanged {
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_RANGEDHEAL_NAME"
+        desc "ABILITY_RANGEDHEAL_DESC"
+        animate_name false
+        class Medic
+    }
+
+
+    target { 
+        min_range 1
+        max_range 4+bonus_range
+    }
+
+    damage_instance {
+        damage 5+bonus_ranged_damage
+
+        effects {
+            ContextualHeal 1
+        }
+
+        elements [
+            Holy
+        ]
+    }
+}
+
+BasicTankMelee {
+    template dash_attack
+    
+    meta {
+        name "ABILITY_PUSHATTACK_NAME"
+        desc "ABILITY_PUSHATTACK_DESC"
+        animate_name false
+        class Tank
+    }
+
+    graphics {
+        dash_start_animation headbuttdashStart
+        dash_animation headbuttdash
+        dash_attack_animation headbuttdashEnd
+    }
+
+    target { 
+        max_range 1+bonus_range
+        max_aoe 1+bonus_melee_range
+        aoe_restrictions must_have_line_of_sight_unpurgable
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+        knockback 1
+    }
+}
+
+
+BasicMonkMelee {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_MONKMELEE_NAME"
+        desc "ABILITY_MONKMELEE_DESC"
+        animate_name false
+        class Monk
+    }
+
+    graphics {
+        animation monkAttack
+    }
+
+    target { 
+        max_aoe 1+bonus_melee_range
+        aoe_restrictions must_have_line_of_sight_unpurgable //TODO: MAKE THIS WORK PROPERLY IF ENLARGED
+    }
+
+    damage_instance {
+        damage "(5+bonus_melee_damage+1)/2"
+    }
+}
+
+BasicMonkRanged {
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_MONKLOBBED_NAME"
+        desc "ABILITY_MONKLOBBED_DESC"
+        animate_name false
+        class Monk
+    }
+
+    target {
+        min_range 2
+        max_range 4+bonus_range
+    }
+
+    damage_instance {
+        damage "(4+bonus_ranged_damage+1)/2"
+    }
+}
+
+BasicButcherMelee {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_BUTCHERMELEE_NAME"
+        desc "ABILITY_BUTCHERMELEE_DESC"
+        animate_name false
+        class Butcher
+    }
+
+    graphics {
+        animation butcherAttack
+    }
+
+    target { 
+        target_mode direction8 
+        max_aoe 1+bonus_melee_range
+        aoe_restrictions must_have_line_of_sight_unpurgable //TODO: MAKE THIS WORK PROPERLY IF ENLARGED
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+        effects {
+            Cleave 1
+        }
+    }
+}
+
+BasicButcherMeleeWide {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_BUTCHERWIDE_NAME"
+        desc "ABILITY_BUTCHERWIDE_DESC"
+        animate_name false
+        class Butcher
+    }
+
+    target { //TODO: have "wide melee" aoe mode that works with range increasing stuff
+        aoe_mode custom
+        aoe_symmetry none
+        custom_aoe [[1, -1] [1, 0] [1, 1]]
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+        effects {
+            Cleave 1
+        }
+    }
+}
+
+BasicButcherMeleeWideSpin {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_BUTCHERSPIN_NAME"
+        desc "ABILITY_BUTCHERSPIN_DESC"
+        animate_name false
+        class Butcher
+    }
+
+    graphics {
+        animation singleSpin
+    }
+
+    target { //TODO: have "wide melee" aoe mode that works with range increasing stuff
+        target_mode none
+        max_aoe 1+bonus_melee_range
+        aoe_mode square
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+        effects {
+            Cleave 1
+        }
+    }
+}
+BasicButcherMeleeWideDoubleSpin {
+    variant_of BasicButcherMeleeWideSpin
+    class MultiHitMeleeAttackAbility
+
+    meta {
+        ability_icon BasicButcherMeleeWideSpin
+    }
+
+    graphics {
+        start spinattackstart
+        loop spinattackloop
+        end spinattackend
+    }
+    target {
+        multihit 2
+    }
+}
+
+BasicDruidAbility {
+    template spell
+    
+    meta {
+        name "ABILITY_DRUIDSING_NAME"
+        desc "ABILITY_DRUIDSING_DESC"
+        animate_name false
+        class Druid
+    }
+    tags [musical]
+
+    graphics {
+        animation sing3//howl
+        particle None
+    }
+
+    target { 
+        max_aoe 2
+        max_range 5+bonus_range
+    }
+
+    damage_instance {
+        //damage 0
+        heal 1
+        cant_miss true
+
+        effects {
+            //ContextualHeal 1
+
+            //Conditional_Ally {
+                TempDamageUp 1
+            //}
+        }
+
+        elements [
+            Holy
+        ]
+    }
+}
+
+BasicDruidAbilityVersatile {
+    template spell
+    
+    meta {
+        name "ABILITY_DRUIDVERSATILE_NAME"
+        desc "ABILITY_DRUIDVERSATILE_DESC"
+        animate_name false
+        class Druid
+    }
+
+    tags [musical]
+
+    graphics {
+        animation sing3//howl
+        particle None
+    }
+
+    target { 
+        max_aoe 2
+        max_range 5+bonus_range
+    }
+
+    damage_instance {
+        damage 1
+        cant_miss true
+
+        effects {
+            ContextualHeal 1
+
+            Conditional_Ally {
+                TempDamageUp 1
+            }
+            Conditional_Enemy {
+                TempDamageUp -1
+            }
+        }
+
+        elements [
+            Holy
+        ]
+    }
+}
+
+TinkererCraft {
+    template self_buff
+
+    keyword_tooltips {TemporaryItem 1 BonusAbility TinkererThrow}
+    
+    meta {
+        name "ABILITY_CRAFTWEAPON_NAME"
+        desc "ABILITY_CRAFTWEAPON_DESC"
+        animate_name false
+        class Tinkerer
+    }
+
+    graphics {
+        animation tinker
+    }
+
+    target {
+        restrictions aoe_must_exist
+        aoe_restrictions must_have_cat_with_empty_weapon_slot
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            Craft {
+                pool tinkerer_default
+                slot weapon
+            }
+            IgnoreDebuffs 1
+        }
+        ai_base_score 9999
+    }
+}
+TinkererThrow {
+    template ranged_attack
+    
+    meta {
+        name "ABILITY_THROWWEAPON_NAME"
+        desc "ABILITY_THROWWEAPON_DESC"
+        animate_name false
+        class Tinkerer
+    }
+
+    tags [weapon_throw]
+
+    graphics {
+        animation weaponthrowstraight
+        projectile source_weapon
+    }
+
+    cost {
+        requires_destructible_weapon true
+    }
+
+    target {
+        min_range 1
+        max_range 4+bonus_range
+    }
+
+    bonus_passives {
+        AbilityInheritsWeaponEffects 1
+    }
+
+    self_damage {
+        effects {
+            DestroyWeaponThrow 1
+        }
+    }
+
+    damage_instance {
+        damage 5+bonus_ranged_damage
+    }
+}
+
+
+BasicPsychicPull {
+    template spell
+
+    meta {
+        name "ABILITY_PSYCHICPULL_NAME"
+        desc "ABILITY_PSYCHICPULL_DESC"
+        animate_name false
+        class Psychic
+    }
+
+    graphics {
+        particle MagicMissleBlast
+        animation psyAttack3
+    }
+    
+    cost {
+        move_points 0
+        act_points 1
+    }
+    
+    target {
+        max_aoe 0
+        max_range 20
+
+        knockback_mode target_to_character
+    }
+    
+    damage_instance {
+        damage 2+bonus_basic_spell_damage
+        knockback 1
+
+        elements [
+            Gravity
+        ]
+    }
+}
+
+BasicNecroRanged {
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_LEECHSHOT_NAME"
+        desc "ABILITY_LEECHSHOT_DESC"
+        animate_name false
+        class Necromancer
+    }
+
+    graphics {
+        projectile LeechProjectile
+    }
+
+    target {
+        min_range 1
+        max_range 3+bonus_range
+    }
+
+    damage_instance {
+        damage 3+bonus_ranged_damage
+
+        effects {
+            Leeches 1
+        }
+    }
+}
+
+BasicDrainMelee {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_DRAINATTACK_NAME"
+        desc "ABILITY_DRAINATTACK_DESC"
+        animate_name false
+    }
+
+    graphics {
+        animation dashbite
+    }
+
+    target { 
+        max_aoe 1+bonus_melee_range
+        aoe_restrictions must_have_line_of_sight_unpurgable //TODO: MAKE THIS WORK PROPERLY IF ENLARGED
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+    
+        effects {
+            Leech 1
+        }
+    }
+}
+
+
+BasicHook {
+    template straightshot_attack
+
+    meta {
+        name "ABILITY_HOOK_NAME"
+        desc "ABILITY_HOOK_DESC"
+        animate_name false
+    }
+
+    target {
+        max_aoe 3+bonus_range
+
+        knockback_mode pull_to_character
+    }
+
+    graphics {
+        animation throwobject
+
+        projectile Froghook
+        chain_movieclip Frogchain
+        chain_distance .25
+    }
+    
+    damage_instance {
+        damage 5+bonus_ranged_damage
+
+        effects {
+             PullSourceToKnockbackImmuneTarget 1
+             CollectsPickups 1
+        }
+    }
+}
+
+BasicMagicMissile {
+    template spell
+
+    meta {
+        name "ABILITY_BASICMAGICMISSILE_NAME"
+        desc "ABILITY_BASICMAGICMISSILE_DESC"
+        class Mage
+        animate_name false
+    }
+
+    graphics {
+        particle MagicMissleBlast
+        use_projectile true
+        projectile MagicMissileProjectile
+        lob_height 1
+        speed 20
+        animation castspell
+    }
+    
+    cost {
+        move_points 0
+        act_points 1
+    }
+    
+    target {
+        max_aoe 0
+        max_range 20
+    }
+    
+    damage_instance {
+        damage "3+bonus_basic_spell_damage+((int-5)*.5)"
+        cant_miss true
+    }
+}
+
+BasicSuplex {
+    template melee_attack
+    class SuplexAbility
+    
+    meta {
+        name "ABILITY_SUPLEX_NAME"
+        desc "ABILITY_SUPLEX_DESC"
+        class Tank
+        animate_name false
+    }
+
+    tags [cant_be_simulcast] //for MimicBasicAttacks passive
+
+    graphics {
+        animation suplex
+    }
+
+    cost {
+        move_points 0
+        act_points 1
+    }
+
+    target {
+       knockback_mode zero
+       aoe_considers_character_size false
+
+       target_mode tile
+       restrictions [aoe_must_be_displaceable must_have_character]
+       range_mode standard
+       aoe_mode standard
+       min_range 1
+       max_range 1
+       min_aoe 0 
+       max_aoe 0 
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+        type melee
+        blocked_multiplier 2
+        makes_contact false
+    }
+}
+
+BasicTwoHitMelee {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_BASICTWOHITMELEE_NAME"
+        desc "ABILITY_BASICTWOHITMELEE_DESC"
+        animate_name false
+    }
+
+    graphics {
+        animation doubleswat
+    }
+
+    target { 
+        max_aoe 1+bonus_melee_range
+        aoe_restrictions must_have_line_of_sight_unpurgable //TODO: MAKE THIS WORK PROPERLY IF ENLARGED
+        multihit 2
+    }
+}
+
+BasicPuke {
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_PUKESHOT_NAME"
+        desc "ABILITY_PUKESHOT_DESC"
+        animate_name false
+    }
+    
+    graphics {
+        animation pukeatk
+    }
+
+    target {
+        min_range 1
+        max_range 4+bonus_range
+        max_aoe 1
+    }
+
+    damage_instance {
+        damage "(4+bonus_ranged_damage+1)/2"
+		elements [
+            Water
+        ]
+    }
+}
+
+BasicExplosiveShot {
+    template spell
+    
+    meta {
+        name "ABILITY_EXPLOSIVESHOT_NAME"
+        desc "ABILITY_EXPLOSIVESHOT_DESC"
+        animate_name false
+    }
+    
+    graphics {
+        animation pukeatk
+        use_projectile true
+        projectile PukeBall
+        particle Explosion
+        delay 2
+    }
+
+    target {
+        min_range 3
+        max_range 4+bonus_range
+        max_aoe 1
+    }
+
+    damage_instance {
+        damage 4+bonus_ranged_damage
+        type ranged
+		elements [
+            Explosion
+        ]
+    }
+}
+
+BasicPoke {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_POKE_NAME"
+        desc "ABILITY_POKE_DESC"
+        ability_icon Poke
+        animate_name false
+    }
+
+    graphics {
+        animation tinyPunch
+    }
+
+    damage_instance {
+        damage 1
+        type melee
+    }
+}
+
+GerdShot {
+    template spell
+    
+    meta {
+        name "ABILITY_GERDSHOT_NAME"
+        desc "ABILITY_GERDSHOT_DESC"
+        animate_name false
+    }
+    
+    graphics {
+        use_projectile true
+        projectile PukeBall
+        animation pukeatk
+        particle Wave
+        center_particle none
+    }
+
+    target {
+        min_range 1
+        max_range 4+bonus_range
+        max_aoe 1
+    }
+
+    self_damage {
+        damage 2
+    }
+
+    damage_instance {
+        damage "4+bonus_ranged_damage"
+        type ranged
+        elements [
+            Water
+        ]
+    }
+    splash_damage {
+        damage 4
+        type spell
+        knockback 1
+        elements [
+            Water
+        ]
+    }
+}
+
+BasicSpin {
+    template melee_attack
+    
+    meta {
+	    name "ABILITY_BASICSPIN_NAME"
+        desc "ABILITY_BASICSPIN_DESC"
+        animate_name false
+    }
+	
+    graphics {
+        animation singleSpin
+    }
+
+    target {
+        target_mode none
+        aoe_mode cross
+        knockback_mode character_to_tile
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+    }
+}
+
+BasicMetronome {
+    template self_buff
+    
+    meta {
+        name "ABILITY_METRONOME_NAME"
+        desc "ABILITY_METRONOME_DESC"
+        class Colorless
+        type_icon "unknown"
+    }
+
+    tags [musical]
+    
+    graphics {
+        animation metronome
+    }
+
+    damage_instance {
+        effects {
+            Metronome 1
+        }
+    }
+}
+
+LacerateKitten {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_LACERATE_NAME"
+        desc "ABILITY_LACERATE_DESC"
+    }
+
+    graphics {
+        animation sliceOpen
+    }
+
+    cost {
+        cantrip true
+        mana 4
+    }
+
+    damage_instance {
+        damage 2+bonus_melee_ability_damage
+
+        effects {
+            Bleed 1
+        }
+    }
+}
+
+BasicTankMeleeTomTom {
+    template dash_attack
+    
+    meta {
+        name "ABILITY_PUSHATTACK_NAME"
+        desc "ABILITY_PUSHATTACK_DESC"
+        animate_name false
+    }
+
+    graphics {
+        dash_start_animation headbuttdashStart
+        dash_animation headbuttdash
+        dash_attack_animation headbuttdashEnd
+    }
+	
+	cost {
+        cantrip true
+        mana 4
+	}
+
+    target { 
+        max_range 1+bonus_range
+        max_aoe 1+bonus_melee_range
+        aoe_restrictions must_have_line_of_sight_unpurgable
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+        knockback 1
+    }
+}
+
+SpawnMaggotFriendMangy {
+    template spawn
+
+    meta {
+        name "ABILITY_SPAWNMAGGOTFRIEND_NAME"
+        desc "ABILITY_SPAWNMAGGOTFRIEND_DESC"
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+        animation shoot
+    }
+    
+    cost {
+        cantrip true
+        mana 3
+    }
+    
+    target {
+        min_range 2
+        max_range 3
+    }
+
+    spawn {
+        object Maggot
+    }
+}
+
+LickHealCatCaller {
+    template melee_attack
+
+    meta {
+        name "ABILITY_LICK_NAME"
+        desc "ABILITY_LICK_DESC"
+        class Colorless
+        type_icon "heal"
+    }
+    
+    graphics {
+        animation lickAttack
+    }
+    
+    cost {
+        mana 4
+        cantrip true
+    }
+    
+    damage_instance {
+        heal 2
+
+        elements [
+            Water
+            Holy
+        ]
+    }
+}
+
+ScatterShotPooter {
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_SCATTERSHOT_NAME"
+        desc "ABILITY_SCATTERSHOT_DESC"
+    }
+
+    graphics {
+        
+    }
+
+    cost {
+        cantrip true
+        mana 7
+    }
+
+    target {
+        max_aoe 1
+
+        min_range 3
+        max_range 6+bonus_range
+
+        aoe_chance .75
+        restrictions none
+
+        can_multihit true
+    }
+
+    damage_instance {
+        damage 2+bonus_ranged_damage
+        type ranged
+    }
+}
+
+SoothingGlowCatCaller {
+    template self_buff
+    
+    meta {
+        name "ABILITY_SOOTHINGGLOW_NAME"
+        desc "ABILITY_SOOTHINGGLOW_DESC"
+    }
+
+    graphics {
+		particle HealSmall
+    }
+
+    cost {
+        cantrip true
+        mana 2
+    }
+    
+    damage_instance {
+        heal 2
+
+        elements [
+            Holy
+        ]
+    }
+}
+
+
+
+DeathAvenge {
+    template spell
+
+    graphics {
+        particle none
+        animation none
+    }
+    target {
+        target_mode none
+        aoe_mode all
+        aoe_considers_character_size false
+        knockback_mode zero
+        aoe_excludes_self true
+        aoe_restrictions [allies_only]
+    }
+
+    damage_instance {
+        cant_miss true
+        damage 0
+        effects {
+            StrengthUp 1
+        }
+    }
+}
+
+ThrowShieldMaisie {
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_THROWSCRAP_NAME"
+        desc "ABILITY_THROWSCRAP_DESC"
+        class Tank
+        type_icon "defense"
+    }
+
+    graphics {
+        projectile ArmorPickup
+        animation throwobject
+    }
+
+    cost {
+        mana 5
+        cantrip true
+    }
+
+    target {
+        min_range 1
+        max_range 2+level
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            Shield 3
+            ObjectOnHitFullyEmpty RandomArmorPickup
+        }
+    }
+}
+
+BrambleShotFenrir {
+    template spell
+
+    meta {
+        name "ABILITY_BRAMBLESHOT_NAME"
+        desc "ABILITY_BRAMBLESHOT_DESC"
+        class Hunter
+    }
+
+    graphics {
+		animation throwArrow
+        use_projectile true
+        particle none
+        projectile BrambleProjectile
+        delay 5
+    }
+    
+    cost {
+        cantrip true
+        mana 7
+    }
+
+    target {
+        max_aoe level
+        min_range 3
+        max_range 7
+    }
+    
+    damage_instance {
+        damage 4
+        
+        effects {
+            BramblesOnHit 1
+        }
+        
+        elements [
+            Grass
+        ]
+    }
+}
+
+SurfLucy {
+    template spell
+
+    meta {
+        name "ABILITY_SURF_NAME"
+        desc "ABILITY_SURF_DESC"
+    }
+
+    graphics {
+        particle Wave
+
+        visual_delay_but_simultaneous_damage 20
+        delay 10
+        animation majormagic
+    }
+    
+    cost {
+        cantrip true
+        mana 7
+    }
+    
+    target {
+        max_aoe 3
+        max_range 6
+    }
+    
+    damage_instance {
+        damage 4
+        knockback 3
+
+        elements [
+            Water
+        ]
+    }
+}
+
+OneTwoPunchMagnus {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_ONETWOPUNCH_NAME"
+        desc "ABILITY_ONETWOPUNCH_DESC"
+    }
+
+    graphics {
+        animation bigdoubleswat
+    }
+
+    cost {
+		cantrip true
+        mana 8
+    }
+
+    target {
+        multihit 2
+    }
+
+    damage_instance {
+        damage 2
+        type melee
+
+        effects {
+            Bruise 1
+        }
+    }
+}
+
+SuckerPunchMagnus {
+    template self_buff
+
+    meta {
+        name "ABILITY_SUCKERPUNCH_NAME"
+        desc "ABILITY_SUCKERPUNCH_DESC"
+        class Fighter
+    }
+    
+    cost {
+        cantrip true
+        mana 5
+    }
+    
+    damage_instance {
+        damage 2
+        type melee
+
+        effects {
+            DamageDown 1
+        }
+
+    }
+}
+
+SliceAndDiceMagnus {
+    template dash_attack
+    
+    meta {
+        name "ABILITY_SLICEANDDICE_NAME"
+        desc "ABILITY_SLICEANDDICE_DESC"
+    }
+    
+    graphics {
+        dash_start_animation none
+        dash_animation spinattackloop
+        dash_attack_animation spinattackloop
+    }
+    
+    cost {
+        cantrip true
+        mana 9
+    }
+    
+    target {
+        aoe_mode cross
+        knockback_mode character_to_tile
+        max_range 1
+    }
+
+    temporary_effects {
+        CastAgain 2
+    }
+    
+    damage_instance {
+        damage 4
+        effects {
+            Bleed 1
+        }
+    }
+}
+
+OkNowImReallyPissedOff {
+    template self_buff
+    
+
+    graphics {
+		particle fx_statup
+		animation backflipLoop
+    }
+    
+    cost {
+        cantrip true
+        mana 4
+    }
+    
+    damage_instance {
+        effects {
+            DamageUp 5
+			Brace 2
+        }
+    }
+}
+
+BabySharkEncourage { //unused because my dumbfuck couldn't make the stupid AI buff other enemies after attacking the player
+    template melee_attack
+    
+    meta {
+        name "ABILITY_BABYSHARKENCOURAGE_NAME"
+        desc "ABILITY_BABYSHARKENCOURAGE_DESC"
+		type_icon "heal"
+    }
+
+    graphics {
+		animation attack
+		particle fx_statup
+    }
+    
+    cost {
+        cantrip true
+        mana 6
+    }
+
+    target {
+        min_range 1
+        max_range 1
+    }
+    
+    damage_instance {
+		heal 1
+        effects {
+            DamageUp 1
+        }
+
+    }
+}
+
+
+SpawnMaggotFriendPooter { //todo make pooters run and use this when on low health
+    template spawn
+
+    meta {
+        name "ABILITY_SPAWNMAGGOTFRIEND_NAME"
+        desc "ABILITY_SPAWNMAGGOTFRIEND_DESC"
+        class Hunter
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+        animation shoot
+    }
+    
+    cost {
+        cantrip true
+        mana 3
+    }
+    
+    target {
+        min_range 1
+        max_range 2
+    }
+
+    spawn {
+        object CharmedMaggot
+    }
+}
+
+ChewSharky {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_CHEW_NAME"
+        desc "ABILITY_CHEW_DESC"
+        class Tank
+    }
+
+    graphics {
+	    animation biteattack
+    }
+
+    cost {
+        cantrip true
+        mana 5
+    }
+
+    damage_instance {
+        damage 5
+        type melee
+
+        effects {
+            Leech 1
+        }
+    }
+}
+
+BasicTankMeleeBoomer {
+    template dash_attack
+    
+    meta {
+        name "ABILITY_PUSHATTACK_NAME"
+        desc "ABILITY_PUSHATTACK_DESC"
+        animate_name false
+    }
+
+    graphics {
+        dash_start_animation headbuttdashStart
+        dash_animation headbuttdash
+        dash_attack_animation headbuttdashEnd
+    }
+	
+	cost {
+        cantrip true
+        mana 4
+	}
+
+    target { 
+        max_range 2+bonus_range
+        max_aoe 1+bonus_melee_range
+        aoe_restrictions must_have_line_of_sight_unpurgable
+    }
+
+    damage_instance {
+        damage 7+bonus_melee_damage
+        knockback 2
+		effects {
+			Stun 1
+		}
+    }
+}
+
+ForbiddenFartGassy { //oh my lordy lord
+    template spell
+
+    meta {
+        name "ABILITY_FORRBIDDENFART_NAME"
+        desc "ABILITY_FORRBIDDENFART_DESC"
+        class Colorless
+    }
+
+    graphics {
+        particle none
+        animation fartoom
+    }
+    
+    cost {
+        cantrip true
+        mana 0
+		once_per_fight true
+    }
+
+    
+    target {
+        target_mode none
+        aoe_mode circle
+        max_aoe 2
+        aoe_excludes_self true
+    }
+
+
+    damage_instance {
+        damage 4
+		Knockback 2
+
+        effects {
+            Poison 4
+            KnockUpAndAway {
+                distance 3
+            }
+        }
+        
+        elements [
+            Poison
+        ]
+    }
+}
+
+WaterKittenDemolish {
+    template melee_attack
+
+    graphics {
+        animation headbuttUppercut
+    }
+	
+	cost {
+        cantrip true
+		act_points 1
+        mana 4
+    }
+
+    damage_instance {
+        damage 8+bonus_melee_damage
+
+        effects {
+            
+            Conditional_AffectedByElement {
+                element Water
+                BonusCritChance 100
+                
+            }
+        }
+    }
+}
+
+BasicShortRangedWaterKitten {
+    template ranged_attack
+    
+    meta {
+        name "ABILITY_SHORTSHOT_NAME"
+        desc "ABILITY_SHORTSHOT_DESC"
+        animate_name false
+    }
+
+    target {
+        min_range 1
+        max_range 3+bonus_range
+    }
+	
+	cost {
+        cantrip true
+		act_points 1
+        mana 4
+    }
+
+    damage_instance {
+        damage 4
+        effects {
+            
+            Conditional_AffectedByElement {
+                element Water
+                BonusCritChance 100
+                
+            }
+        }
+    }
+}
+
+WhirlpoolFlushmaster {
+    template spell
+
+    meta {
+        name "ABILITY_WATERSPHERE_NAME"
+        desc "ABILITY_WATERSPHERE_DESC"
+        class Mage
+    }
+
+    graphics {
+        particle Wave
+        animation attack
+    }
+    
+    cost {
+        cantrip true
+        mana 7
+    }
+    
+    target {
+        max_aoe 3
+        max_range 6
+
+        knockback_mode target_to_tile
+        knockback_modifier rotate_cw
+    }
+    
+    damage_instance {
+        damage 0
+        knockback 1
+
+        effects {
+            Confusion 1
+            ChangeTile WaterTile_Current
+            TurnRight 1
+        }
+
+        elements [
+            Water
+        ]
+    }
+}
+
+TungEquip { //april fools related stuff
+    template self_buff
+
+    graphics {
+        animation equipWeapon
+    }
+
+    cost {
+        cantrip true
+		once_per_fight true
+    }
+
+
+    damage_instance {
+        damage 0
+
+        effects {
+            SwapWeapon {
+                pool [LilSlugger]
+            }
+        }
+        ai_base_score 9999
+    }
+}
+
+LigmaBalls { //this unfortunately did not vaporize the corpse as I wanted it to in the showcase video. Was too lazy to fix it anyways, t'was a one off thing anyways for the fools day
+    template melee_attack
+
+    graphics {
+        animation Default
+
+    }
+    
+    meta {
+        name "ABILITY_LIGMABALLS_NAME"
+        desc "ABILITY_LIGMABALLS_DESC"
+        animate_name false
+    }
+
+    target { 
+        max_aoe 1+bonus_melee_range
+        aoe_restrictions must_have_line_of_sight_unpurgable
+    }
+	effects {
+            VaporizeCorpse 1
+        }
+}
+
+Aggravate {
+    template spell
+
+    graphics {
+        particle none
+        animation none
+    }
+    target {
+        target_mode none
+        aoe_mode all
+        aoe_considers_character_size false
+        knockback_mode zero
+        aoe_excludes_self true
+        aoe_restrictions [allies_only]
+    }
+
+    damage_instance {
+        cant_miss true
+        damage 0
+        effects {
+            StrengthUp 1
+			SpeedUp 1
+        }
+    }
+}
+
+AlbinoTomTomDash {
+    template dash_attack
+    
+    meta {
+        name "ABILITY_PUSHATTACK_NAME"
+        desc "ABILITY_PUSHATTACK_DESC"
+        animate_name false
+    }
+
+    graphics {
+        dash_start_animation headbuttdashStart
+        dash_animation headbuttdash
+        dash_attack_animation headbuttdashEnd
+    }
+	
+	cost {
+        cantrip true
+        mana 4
+	}
+
+    target { 
+        max_range 1+bonus_range
+        max_aoe 1+bonus_melee_range
+        aoe_restrictions must_have_line_of_sight_unpurgable
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+        knockback 1
+		effects {
+            Fear 1
+			Bleed 1
+        }
+    }
+	
+}
+
+WebRain {
+    template lobbed_attack
+
+    target {
+        min_range 2
+        max_range 6
+		max_aoe 2
+		aoe_chance .5
+        restrictions none
+
+        can_multihit true
+        restrictions none
+        knockback_mode zero
+    }
+	
+    graphics {
+        projectile Webball
+    }
+	
+	cost {
+        cantrip true
+    }
+	
+    damage_instance {
+        damage 1
+
+        effects {
+            Webbed 2
+			SpiderInfested 1 //pro tip: do NOT change "SpiderInfested" in Web Rain's and Web Shot's code to "Infested". worst mistake of my fucking life
+			Poison 1
+        }
+
+        custom_additional_ai_weight avoid_redundant_debuffs
+    }
+}
+
+ChaosTeleportToadie {
+    template teleport
+    
+
+    graphics {
+    }
+
+    cost {
+        cantrip true
+        mana 1
+    }
+
+    target {
+        target_mode random_tile
+        max_range 20
+    }
+}
+
+PsychicChokeBrainDrain {
+    template spell
+
+    meta {
+        name "ABILITY_PSYCHICCHOKE_NAME"
+        desc "ABILITY_PSYCHICCHOKE_DESC"
+        class Psychic
+    }
+
+    graphics {
+        affected_particle fx_GravitySlam
+        fx_is_placeholder_animation true
+        animation pulse2
+    }
+    
+    cost {
+        cantrip true
+        mana 5
+    }
+    
+    target {
+        max_aoe 0
+        max_range 20
+        knockback_mode zero
+        restrictions must_have_line_of_sight
+    }
+    
+    damage_instance {
+        damage 2
+
+        effects {
+            Bruise 1
+        }
+
+        elements [
+            Gravity
+        ]
+    }
+}
+
+SlimePoisonAttack {
+    template dash_attack
+    
+    
+    graphics {
+        animation Default
+    }
+	
+	cost {
+        cantrip true
+        mana 4
+	}
+
+    target { 
+        max_range 1+bonus_range
+        aoe_restrictions must_have_line_of_sight_unpurgable
+		
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+        knockback 1
+		effects {
+            Poison 1
+        }
+    }
+	
+}
+FatassSlimePoison {
+    template melee_attack
+    
+    graphics {
+        animation Default
+    }
+	
+	cost {
+        cantrip true
+        mana 4
+	}
+
+    target { 
+        max_range 1+bonus_range
+        aoe_restrictions must_have_line_of_sight_unpurgable
+		max_aoe 1+bonus_melee_range
+		
+    }
+
+    damage_instance {
+        damage 5+bonus_melee_damage
+        knockback 1
+		effects {
+            Poison 1
+        }
+    }
+}
