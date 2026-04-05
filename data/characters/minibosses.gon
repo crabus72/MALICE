@@ -166,7 +166,7 @@ BigSlime {
         dispersed_bonus_turns 1
         corpse_health 0
         
-        health 80
+        health 90
 
         size 2x2
         move_block everything_even_when_dead
