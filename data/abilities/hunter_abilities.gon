@@ -1980,7 +1980,7 @@ SpawnTomTomFriend {
     
     cost {
         infcantrip true
-        mana 6
+        mana 9
     }
     
     target {
