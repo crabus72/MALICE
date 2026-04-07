@@ -20237,7 +20237,7 @@ EncouragementEnemy {
     }
 
     cost {
-        infcantrip true
+        cantrip true
         mana 0
     }
 

@@ -4164,10 +4164,15 @@ LoanShark {
 SpiderCatSpineretteHard {
     graphics {
         movieclip _CAT
-        name "ENEMY_SPIDERCAT_WARRIOR_NAME"
+        name "ENEMY_SPIDERCATWARRIOR_NAME"
         custom_cat_data SpiderCat
         scale .8
         tooltip "ENEMY_SPIDERCATWARRIOR_DESC"
+    }
+     equipment {
+        head LeadHelmet
+        neck LeadShoulderPads
+        face LeadMask
     }
 
     stats {
@@ -4175,7 +4180,7 @@ SpiderCatSpineretteHard {
         dexterity 5
         constitution 5
         intelligence 5
-        speed 10
+        speed 14
         charisma 5
         luck 5
     }
@@ -4184,8 +4189,7 @@ SpiderCatSpineretteHard {
         tag [cat bug]
         type cat
 
-        health 40
-        initial_health 25
+        health 30
         dispersed_bonus_turns 1
 
         base_mana_regen 999
@@ -4200,13 +4204,13 @@ SpiderCatSpineretteHard {
 
         spells [
             SmallSpiderMelee
-            Encouragement
+            EncouragementEnemy
         ]
     }
 
     passives {
         StatusImmunity Webbed
-        StatusInmunity Poison
+        StatusImmunity Poison
         StatusOnTookDamageFromAbility {
             RandomStatUp 1
             DamageUp 1
@@ -4225,7 +4229,7 @@ SpiderCatSpineretteHard {
         pattern {
             do_priority [WebShot, SmallSpiderMelee]
             do_priority [SmallSpiderMelee, WebShot]
-            do_random [Encouragement]
+            do_random [EncouragementEnemy]
         }
     }
         
