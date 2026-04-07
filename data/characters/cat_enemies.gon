@@ -4160,3 +4160,75 @@ LoanShark {
         move_weights stay_close_always_move
     }
 }
+
+SpiderCatSpineretteHard {
+    graphics {
+        movieclip _CAT
+        name "ENEMY_SPIDERCAT_WARRIOR_NAME"
+        custom_cat_data SpiderCat
+        scale .8
+        tooltip "ENEMY_SPIDERCATWARRIOR_DESC"
+    }
+
+    stats {
+        strength 5
+        dexterity 5
+        constitution 5
+        intelligence 5
+        speed 10
+        charisma 5
+        luck 5
+    }
+
+    properties {
+        tag [cat bug]
+        type cat
+
+        health 40
+        initial_health 25
+        dispersed_bonus_turns 1
+
+        base_mana_regen 999
+        faction enemies
+        movement 3
+        initiative 16
+    }
+
+    abilities {
+        move DefaultMove
+        attack WebShot
+
+        spells [
+            SmallSpiderMelee
+            Encouragement
+        ]
+    }
+
+    passives {
+        StatusImmunity Webbed
+        StatusInmunity Poison
+        StatusOnTookDamageFromAbility {
+            RandomStatUp 1
+            DamageUp 1
+        }
+    }
+
+
+    ai {
+        brain PatternBrain
+        decision_weights default
+        move_weights keep_distance
+
+        fallback_advances_pattern false
+        stun_advances_pattern false
+
+        pattern {
+            do_priority [WebShot, SmallSpiderMelee]
+            do_priority [SmallSpiderMelee, WebShot]
+            do_random [Encouragement]
+        }
+    }
+        
+}
+
+

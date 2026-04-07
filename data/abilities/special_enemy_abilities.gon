@@ -20189,3 +20189,77 @@ TheMother_Birth {
         ai_base_score 999999
     }
 }
+
+BornKittenPlus { 
+    template spawn
+
+    meta {
+        name "ABILITY_BORNKITTENPLUS_NAME"
+        desc "ABILITY_BORNKITTENPLUS_DESC"
+
+    }
+
+    tags [summon]
+
+    graphics {
+        lob true
+        animation shoot
+    }
+
+    cost {
+        infcantrip true
+        mana 0
+    }
+
+    target {
+        min_range 1
+        max_range 1
+        max_aoe 0
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object SpiderCatSpineretteHard
+    }
+}
+
+EncouragementEnemy {
+    template targeted_status
+    meta {
+        name "ABILITY_ENCOURAGEMENTENEMY_NAME"
+        desc "ABILITY_ENCOURAGEMENTENEMY_DESC"
+    }
+
+    graphics {
+        animation sing2
+    }
+
+    cost {
+        infcantrip true
+        mana 0
+    }
+
+    target {
+        min_range 0
+        max_range 10
+        max_aoe 10
+        //aoe_restrictions familiars_only
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            Conditional_Ally {
+                DamageUp 2
+                RandomStatUp 4
+                Conditional_GoodRoll {
+                    odds 10%
+                    TakeExtraTurn 1
+                }
+            }
+        }
+    }
+}

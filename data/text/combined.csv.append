@@ -2609,3 +2609,9 @@ BOSS_TOMTOMSAHUR_NAME, Tom Tom Sahur
 BOSS_TOMTOMSAHUR_DESC, Arranges a meeting between you and God.
 ABILITY_LIGMABALLS_NAME, Ligma Balls
 ABILITY_LIGMABALLS_DESC, but what if the attack had VaporizeCorpse 1
+ABILITY_BORNKITTENPLUS_NAME, Birth Spider Warrior
+ABILITY_BORNKITTENPLUS_DESC, Spawns a Warrior Spider Kitten
+ABILITY_ENCOURAGEMENTENEMY_NAME, Encouragement
+ABILITY_ENCOURAGEMENTENEMY_DESC, Increases stats of enemies with a 10% chance of giving them a extra turn.
+ENEMY_SPIDERCAT_WARRIOR_NAME, Spider Cat Warrior
+ENEMY_SPIDERCAT_WARRIOR_DESC, Webs enemies. Has a chance to use a ability that buffs other enemies with a 10% chance of giving them a extra turn.

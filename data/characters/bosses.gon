@@ -1496,7 +1496,7 @@ SpiderQueen {
         movement 3
         mana_regen 999
         mana 100
-        health 250
+        health 275
         //dispersed_bonus_turns 2
         takes_main_turn false //turns get set in FormChanger
 
@@ -1519,6 +1519,7 @@ SpiderQueen {
             ButtWeb
             ButtWeb_AlreadyEnraged
             ExtraMove
+            BornKittenPlus
         ]
     }
 
@@ -1582,7 +1583,7 @@ SpiderQueen {
                     brain PatternBrain
 
                     pattern {
-                        do_priority [SpiderSpawn]
+                        do_priority [SpiderSpawn, BornKittenPlus]
                         do_priority [SpiderSpawn]
                         do_priority [SpiderReturn]
                     }
@@ -1601,7 +1602,7 @@ SpiderQueen {
 
                     MoveTowardsKillers {
                         move_ability SpiderReturn
-                        character_filter [SpiderCat, TallSpiderCat]
+                        character_filter [SpiderCat, TallSpiderCat, SpiderCatSpineretteHard]
                     }
                 }
 
@@ -1624,8 +1625,8 @@ SpiderQueen {
                     }
 
                     pattern {
-                        do_priority [attack, QueenMinis]
-                        do_priority [attack, QueenMinis]
+                        do_priority [attack, QueenMinis, BornKittenPlus]
+                        do_priority [attack, QueenMinis, BornKittenPlus]
                         do_priority [attack, MoveAway, Spider_CalmDown]
                     }
 
@@ -1660,8 +1661,8 @@ SpiderQueen {
                     brain PatternBrain
 
                     pattern {
-                        do_priority [SpiderSpawn]
-                        do_priority [SpiderSpawn]
+                        do_priority [SpiderSpawn, BornKittenPlus]
+                        do_priority [SpiderSpawn, BornKittenPlus]
                         do_priority [SpiderReturn]
                     }
 
@@ -1679,7 +1680,7 @@ SpiderQueen {
 
                     MoveTowardsKillers {
                         move_ability SpiderReturn
-                        character_filter [SpiderCat, TallSpiderCat]
+                        character_filter [SpiderCat, TallSpiderCat, SpiderCatSpineretteHard]
                     }
                 }
 
@@ -1696,7 +1697,7 @@ SpiderQueen {
         StatusImmunity Webbed
 
         SpawnThingOnDamage {
-            object TinySpider
+            object [TinySpider, SpiderCat]
             good false //good relative to the thing attacking, for luck calculations
             spawn_on_death_hit false
             chance 50%
