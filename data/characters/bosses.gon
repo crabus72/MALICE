@@ -1697,7 +1697,7 @@ SpiderQueen {
         StatusImmunity Webbed
 
         SpawnThingOnDamage {
-            object [TinySpider, SpiderCat]
+            object TinySpider
             good false //good relative to the thing attacking, for luck calculations
             spawn_on_death_hit false
             chance 50%

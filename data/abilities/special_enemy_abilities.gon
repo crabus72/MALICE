@@ -20203,11 +20203,11 @@ BornKittenPlus {
 
     graphics {
         lob true
-        animation shoot
+        animation egg
     }
 
     cost {
-        infcantrip true
+        cantrip true
         mana 0
     }
 
