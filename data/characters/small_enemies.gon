@@ -620,7 +620,7 @@ Clot {
         dexterity 5
         constitution 5
         intelligence 5
-        speed 2
+        speed 10
         charisma 5
     }
     
@@ -631,8 +631,8 @@ Clot {
         type small
 
         corpse_health 0
-        movement 4
-        health 1
+        movement 8
+        health 3
         
         deathpoof_size 1
     }
@@ -644,6 +644,7 @@ Clot {
         spells [
             ClotEvolve
             ClotFailEvolve
+            ClotSpecialEvolve
         ]
     }
 
@@ -655,7 +656,7 @@ Clot {
         brain PatternBrain
 
         pattern {
-            move_then_do_random [ClotEvolve ClotFailEvolve]
+            move_then_do_random [ClotSpecialEvolve, ClotFailEvolve, ClotEvolve]
         }
 
         decision_weights default

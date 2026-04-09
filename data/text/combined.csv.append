@@ -2615,3 +2615,11 @@ ABILITY_ENCOURAGEMENTENEMY_NAME, Encouragement
 ABILITY_ENCOURAGEMENTENEMY_DESC, Increases stats of enemies with a 10% chance of giving them a extra turn.
 ENEMY_SPIDERCATWARRIOR_NAME, Spider Cat Warrior
 ENEMY_SPIDERCATWARRIOR_DESC, Webs enemies and attacks with Lifesteal. Has a chance to use a ability that buffs other enemies with a 10% chance of giving them a extra turn.
+ABILITY_FLESHYBIRTH_NAME, Fleshy Birth
+ABILITY_FLESHYBIRTH_DESC, Spawns a enemy from the Throbbing Domain.
+ABILITY_BRAINSTORMING_NAME, Brainstorming
+ABILITY_BRAINSTORMING_DESC, Casts 2 random upgraded spells.
+ABILITY_FLESHYMIMIC_NAME, Mimic
+ABILITY_FLESHYMIMIC_DESC, Tries to copy a spell from a enemy, gain Confusion afterwards.
+ABILITY_CLOTSHOT_NAME, Clot Shot
+ABILITY_CLOTSHOT_DESC, Ranged attack that spawns Clots where it lands.

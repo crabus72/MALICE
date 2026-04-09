@@ -3220,7 +3220,7 @@ Skinned {
     properties {
         tag cat
         type cat
-        health 30
+        health 40
         faction enemies
         base_mana_regen 999
     }
@@ -3230,13 +3230,18 @@ Skinned {
         attack SkinnedTripleDash
         
         spells [
-            
+            CounterSkinned
+            FurySwipesSkinned
         ]
     }
 
     passives {
+        SpawnOnDeath Spookie
         StatusOnTookDamageFromAbility {
             Bleed 1
+            StrengthUp 1
+            DamageUp 1
+            HealthRegenUp 1
         }
     }
     
@@ -3245,6 +3250,7 @@ Skinned {
 
         pattern {
             do attack
+            do_random [CounterSkinned FurySwipesSkinned]
         }
 
         decision_weights default
@@ -3284,15 +3290,16 @@ StemCat {
 
     abilities {
         move DefaultMove
-        attack BasicMelee
+        attack BasicRanged
         
         spells [
-            
+            ClotShot
         ]
     }
 
     passives {
         HealthRegenUp 2
+        Brace 2
         SpawnThingOnDamage {
             object Clot
             good false //good relative to the thing attacking, for luck calculations

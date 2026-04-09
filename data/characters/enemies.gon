@@ -8062,7 +8062,7 @@ MeatSlime {
         movement 3
         corpse_health 0
         
-        health 16
+        health 20
     }
 
     abilities {
@@ -8075,6 +8075,8 @@ MeatSlime {
 
     passives {
         Divide4OnDeath Clot
+        Brace 2
+
     }
     
     ai {
@@ -8106,7 +8108,7 @@ ThrobbingTurret {
     properties {
         tag blob
         //auto_run_priority stationary
-        health 10
+        health 20
         movement 0
         faction enemies
         corpse_health 0
@@ -8120,11 +8122,13 @@ ThrobbingTurret {
         spells [
             SpawnClot
             ThrobShot_Reaction
+            FleshyBirth
         ]
     }
 
     passives {
-        MiniVolcanoReaction ThrobShot_Reaction
+        TransformOnDeath [Parasiter StemCat MeatSlime FleshLad Skinned FleshyMind]
+        CounterAttack ThrobShot_Reaction
     }
     
     ai {
@@ -8159,8 +8163,8 @@ Parasiter {
         tag humanoid
         faction enemies
 
-        health 15
-        movement 2
+        health 20
+        movement 3
     }
 
     abilities {
@@ -8169,18 +8173,23 @@ Parasiter {
         
         spells [
             ParasiterSpawn
+            MutateAOE
         ]
     }
 
     passives {
-
+        TransformOnDeath Carcus
+        AddStatusToBasicAttack {
+            Leech 2
+        }
     }
     
     ai {
         brain PatternBrain
 
         mainturn_pattern {
-            do_priority [ParasiterShoot, ParasiterSpawn]
+            do_priority [ParasiterShoot, ParasiterSpawn MutateAOE]
+            move_then_do_random [ParasiterSpawn MutateAOE ]
         }
 
         decision_weights default
@@ -8208,7 +8217,7 @@ FleshLad {
         tag blob
         faction enemies
 
-        health 23
+        health 26
         movement 2
     }
 
@@ -8222,12 +8231,18 @@ FleshLad {
     }
 
     passives {
+        Brace 1
+        HealthRegenUp 2
+        
         StatusOnTookDamageFromAbility {
             ExtraBasicAttacks_Status 1
             HealthRegenUp 1
+            DamageUp 1
+
         }
         StatusEachTurnEnd {
             SpeedUp 2
+            DamageUp 2
         }
     }
     
@@ -8264,8 +8279,8 @@ FleshyMind {
         tag blob
         faction enemies
 
-        health 23
-        movement 2
+        health 26
+        movement 3
     }
 
     abilities {
@@ -8274,6 +8289,8 @@ FleshyMind {
         
         spells [
             FleshyMindConfusion
+            Brainstorming
+            FleshyMimic
         ]
     }
 
@@ -8286,6 +8303,7 @@ FleshyMind {
 
         mainturn_pattern {
             do attack
+            do_random [Brainstorming FleshyMimic]
         }
 
         decision_weights default

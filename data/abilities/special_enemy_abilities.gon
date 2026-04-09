@@ -17675,7 +17675,7 @@ ThrobShot {
     }
 
     target {
-        min_range 3
+        min_range 1
         max_range 7+bonus_range
         max_aoe 1
     }
@@ -20261,5 +20261,236 @@ EncouragementEnemy {
                 }
             }
         }
+    }
+}
+
+FleshyBirth { 
+    template spawn
+
+    meta {
+        name "ABILITY_FLESHYBIRTH_NAME"
+        desc "ABILITY_FLESHYBIRTH_DESC"
+        
+    }
+
+    tags [summon]
+    
+    graphics {
+        lob true
+        animation shoot
+    }
+    
+    cost {
+        cantrip true
+        mana 0
+    }
+    
+    target {
+        min_range 1
+        max_range 1
+
+        range_excludes_blocking false
+        restrictions aoe_must_exist
+    }
+
+    spawn {
+        object [Parasiter StemCat MeatSlime FleshLad Skinned FleshyMind]
+    }
+}
+ClotSpecialEvolve {
+    template self_buff
+
+    graphics {
+        animation pulse
+    }
+
+    
+     cost {
+        cantrip true
+        mana 4
+    }
+
+    damage_instance {
+        ai_base_score 999999
+        effects {
+            PopAndSpawn [ThrobbingTurret Skinned FleshyMind MeatSlime Parasiter StemCat]
+        }
+    }
+}
+SpawnSpookie {
+    template self_buff
+
+    graphics {
+        animation pulse
+    }
+
+    damage_instance {
+        ai_base_score 999999
+        effects {
+            PopAndSpawn Spookie
+        }
+    }
+}
+Brainstorming {
+    template self_buff
+    
+    meta {
+        name "ABILITY_BRAINSTORMING_NAME"
+        desc "ABILITY_BRAINSTORMING_DESC"
+    }
+
+    tags [musical]
+    
+    graphics {
+        animation pulse
+    }
+
+    cost {
+        mana 0
+        cantrip true
+        once_per_fight true
+    }
+
+    damage_instance {
+        effects {
+            Metronome 2
+            Metronome 2
+        }
+    }
+}
+FleshyMimic {
+    template targeted_status
+    
+    meta {
+        name "ABILITY_FLESHYMIMIC_NAME"
+        desc "ABILITY_FLESHYMIMIC_DESC"
+	
+    graphics {
+        animation pulse
+    }
+    
+    cost {
+        cantrip true
+        mana 0
+    }
+    
+    target {
+        min_range 1
+        max_range 20
+        max_aoe 0
+
+        restrictions [must_have_player_cat]
+    }
+    
+    damage_instance {
+        effects {
+            MimicMetronome 1
+        }
+    }
+    self_damage {
+        effects {
+            Confusion 1
+        }
+    }
+}
+SpawnCarcus {
+    template self_buff
+
+    graphics {
+        animation pulse
+    }
+
+    }
+     cost {
+        cantrip true
+        mana 4
+    }
+
+    damage_instance {
+        ai_base_score 999999
+        effects {
+            PopAndSpawn Carcus
+        }
+    }
+}
+ClotShot {
+    template ranged_attack
+    meta {
+        name "ABILITY_CLOTSHOT_NAME"
+        desc "ABILITY_CLOTSHOT_DESC"
+    }
+    graphics {
+        animation throw
+
+    }
+     cost {
+        cantrip true
+        mana 4
+    }
+
+    target {
+        min_range 1
+        max_range 5+bonus_range
+    }
+    effects {
+        damage_instance {
+            damage 5+bonus_ranged_damage
+            type ranged
+        }
+        ApplyToTile {
+        ObjectOnHit Clot
+        }
+    }
+}
+
+CounterSkinned {
+    template self_buff
+    
+    meta {
+        name "ABILITY_COUNTER_NAME"
+        desc "ABILITY_COUNTER2_DESC"
+        class Fighter
+        type_icon "defense"
+    }
+
+    graphics {
+    }
+    
+    cost {
+        cantrip true
+        mana 6
+    }
+    
+    damage_instance {
+        effects {
+            TempPreEmptiveCounterAttack 1
+        }
+    }
+}
+
+FurySwipesSkinned {
+    template melee_attack
+    
+    meta {
+        name "ABILITY_FURYSWIPES_NAME"
+        desc "ABILITY_FURYSWIPES_DESC"
+        class Fighter
+    }
+
+    graphics {
+    }
+
+    cost {
+        cantrip true
+        mana 6
+    }
+
+    temporary_effects {
+        Fury 75
+    }
+
+    damage_instance {
+        damage 2+bonus_melee_ability_damage
+        type melee
     }
 }
