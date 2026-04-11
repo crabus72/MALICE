@@ -8289,8 +8289,6 @@ FleshyMind {
         
         spells [
             FleshyMindConfusion
-            Brainstorming
-            FleshyMimic
         ]
     }
 
@@ -8303,7 +8301,7 @@ FleshyMind {
 
         mainturn_pattern {
             do attack
-            do_random [Brainstorming FleshyMimic]
+            //do_random [Brainstorming FleshyMimic]
         }
 
         decision_weights default

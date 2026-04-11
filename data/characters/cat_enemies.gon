@@ -3290,7 +3290,7 @@ StemCat {
 
     abilities {
         move DefaultMove
-        attack BasicRanged
+        attack BasicMelee
         
         spells [
             ClotShot

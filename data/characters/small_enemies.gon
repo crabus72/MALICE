@@ -643,8 +643,11 @@ Clot {
         
         spells [
             ClotEvolve
-            ClotFailEvolve
-            ClotSpecialEvolve
+            ClotEvolve2
+            ClotEvolve3
+            ClotEvolve4
+            ClotEvolve5
+            ClotEvolve6
         ]
     }
 
@@ -656,7 +659,7 @@ Clot {
         brain PatternBrain
 
         pattern {
-            move_then_do_random [ClotSpecialEvolve, ClotFailEvolve, ClotEvolve]
+            move_then_do_random [ClotEvolve, ClotEvolve2, ClotEvolve3, ClotEvolve4, ClotEvolve5, ClotEvolve6] //this is kinda janky but it works
         }
 
         decision_weights default

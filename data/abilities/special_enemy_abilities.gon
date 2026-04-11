@@ -5037,7 +5037,7 @@ Spider_CalmDown {
 
     damage_instance {
         effects {
-            Purge 0
+            Purge 
             FormChange {
                 form "Default_Ground"
             }
@@ -17622,7 +17622,7 @@ ClotEvolve {
     damage_instance {
         ai_base_score 999999
         effects {
-            PopAndSpawn StemCat_HalfHealth
+            PopAndSpawn StemCat
         }
     }
 }
@@ -20307,83 +20307,7 @@ FleshyBirth {
     }
 }
 
-SpawnSpookie {
-    template self_buff
 
-    graphics {
-        animation pulse
-    }
-
-    damage_instance {
-        ai_base_score 999999
-        effects {
-            PopAndSpawn Spookie
-        }
-    }
-}
-Brainstorming {
-    template self_buff
-    
-    meta {
-        name "ABILITY_BRAINSTORMING_NAME"
-        desc "ABILITY_BRAINSTORMING_DESC"
-    }
-
-    tags [musical]
-    
-    graphics {
-        animation pulse
-    }
-
-    cost {
-        mana 0
-        cantrip true
-        once_per_fight true
-    }
-
-    damage_instance {
-        effects {
-            Metronome 2
-            Metronome 2
-        }
-    }
-}
-FleshyMimic {
-    template targeted_status
-    
-    meta {
-        name "ABILITY_FLESHYMIMIC_NAME"
-        desc "ABILITY_FLESHYMIMIC_DESC"
-    }
-	
-    graphics {
-        animation pulse
-    }
-    
-    cost {
-        cantrip true
-        mana 0
-    }
-    
-    target {
-        min_range 1
-        max_range 20
-        max_aoe 0
-
-        restrictions [must_have_player_cat]
-    }
-    
-    damage_instance {
-        effects {
-            MimicMetronome 1
-        }
-    }
-    self_damage {
-        effects {
-            Confusion 1
-        }
-    }
-}
 
 
 CounterSkinned {
@@ -20534,6 +20458,108 @@ QueenSwarm {
         
         effects {
             BounceObject SpiderCat
+        }
+    }
+}
+
+ClotEvolve2 {
+    template self_buff
+
+    graphics {
+        animation pulse
+    }
+
+    damage_instance {
+        ai_base_score 999999
+        effects {
+            PopAndSpawn FleshyMind
+        }
+    }
+}
+
+ClotEvolve3 {
+    template self_buff
+
+    graphics {
+        animation pulse
+    }
+
+    damage_instance {
+        ai_base_score 999999
+        effects {
+            PopAndSpawn FleshLad
+        }
+    }
+}
+
+ClotEvolve4 {
+    template self_buff
+
+    graphics {
+        animation pulse
+    }
+
+    damage_instance {
+        ai_base_score 999999
+        effects {
+            PopAndSpawn Skinned
+        }
+    }
+}
+
+ClotEvolve5 {
+    template self_buff
+
+    graphics {
+        animation pulse
+    }
+
+    damage_instance {
+        ai_base_score 999999
+        effects {
+            PopAndSpawn Parasiter
+        }
+    }
+}
+
+ClotEvolve6 {
+    template self_buff
+
+    graphics {
+        animation pulse
+    }
+
+    damage_instance {
+        ai_base_score 999999
+        effects {
+            PopAndSpawn ThrobbingTurret
+        }
+    }
+}
+
+ClotShot {
+    template lobbed_attack
+
+    tags [summon]
+
+    graphics {
+        projectile Tumorball
+    }
+
+    cost {
+        cantrip true
+    }
+
+    target {
+        min_range 0
+        max_range 5
+    }
+
+    damage_instance {
+        damage 2+bonus_ranged_damage
+
+        effects {
+            BounceObject Clot
         }
     }
 }
