@@ -2158,10 +2158,11 @@ Esegue un attacco in salto con Contraccolpo.","Cego.
 Realiza um disparo de gosma em arco ao sofrer dano.
 Realiza um ataque de salto com empurrão.",,,,
 ENEMY_SPIDERQUEEN_NAME,Spinnerette,,Hiladora,Arachnéa,Spinnenkönigin,Giravoltette,Girerette,,,,
-ENEMY_SPIDERQUEEN_DESC,"Does a bite attack.
+ENEMY_SPIDERQUEEN_DESC,"Does a bite attack that inflicts Bleed and has Lifesteal.
 Has a chance to spawn Spiderlings when damaged.
 Enrages when hit from behind.
-Can spawn Spider Cats.",,"Lanza un ataque con mordisco.
+Can spawn Spider Cats.
+Webs and spawn Spider Cats in a medium area.",,"Lanza un ataque con mordisco.
 Puede generar arañitas al sufrir daño.
 Monta en cólera al recibir un golpe por la espalda.
 Puede generar gatos araña.","Lance une attaque Morsure.
