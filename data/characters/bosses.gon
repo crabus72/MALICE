@@ -1513,6 +1513,7 @@ SpiderQueen {
             SpiderSpawn
             QueenWeb
             QueenMinis
+            QueenSwarm
             Spider_GoInsane
             Spider_CalmDown
             SpiderReturn
@@ -1553,9 +1554,9 @@ SpiderQueen {
                     brain PatternBrain
 
                     pattern {
-                        do_priority [*QueenWeb, *attack, QueenMinis] // I have no fucking idea how to make her use Web and Minis in 1 turn, so I'll have to leave these as is. I will probably come back to this soon
+                        do_priority [*QueenWeb, *attack, QueenMinis] 
                         do_priority [*QueenMinis, *QueenWeb, **BornKittenPlusGrounded]
-                        do_priority [*attack, *QueenWeb, *QueenMinis, **Leave]
+                        do_priority [*attack, *QueenWeb, *QueenSwarm, **Leave]
                     }
 
                     decision_weights careless
@@ -1572,6 +1573,12 @@ SpiderQueen {
                         ability ButtWeb
                         backstabs_only true
                         ability_damage_only true
+                    }
+                    SpawnThingOnDamage {
+                        object TinySpider
+                        good false //good relative to the thing attacking, for luck calculations
+                        spawn_on_death_hit false
+                        chance 50%
                     }
                 }
 
@@ -1606,6 +1613,12 @@ SpiderQueen {
                         move_ability SpiderReturn
                         character_filter [SpiderCat, TallSpiderCat, SpiderCatSpineretteHard]
                     }
+                    SpawnThingOnDamage {
+                        object TinySpider
+                        good false //good relative to the thing attacking, for luck calculations
+                        spawn_on_death_hit false
+                        chance 50%
+                    }
                 }
 
                 turns {
@@ -1627,8 +1640,8 @@ SpiderQueen {
                     }
 
                     pattern {
-                        do_priority [*attack, QueenMinis, **BornKittenPlusGrounded, QueenWeb]
-                        do_priority [*attack, QueenWeb, QueenMinis, MoveAway, **Spider_CalmDown]
+                        do_priority [*attack, QueenMinis, **BornKittenPlusGrounded, QueenWeb, QueenSwarm]
+                        do_priority [*attack, QueenWeb, QueenMinis, QueenSwarm, MoveAway, **Spider_CalmDown]
                     }
 
                     decision_weights careless
@@ -1648,6 +1661,13 @@ SpiderQueen {
                         backstabs_only true
                         ability_damage_only true
                     }
+                    SpawnThingOnDamage {
+                        object SpiderCat
+                        good false //good relative to the thing attacking, for luck calculations
+                        spawn_on_death_hit false
+                        chance 50%
+                    }
+                    CounterAttackAfterEnemyCastSpell QueenMinis
                 }
 
                 turns {
@@ -1683,11 +1703,17 @@ SpiderQueen {
                         move_ability SpiderReturn
                         character_filter [SpiderCat, TallSpiderCat, SpiderCatSpineretteHard]
                     }
+                    SpawnThingOnDamage {
+                        object SpiderCat
+                        good false //good relative to the thing attacking, for luck calculations
+                        spawn_on_death_hit false
+                        chance 50%
+                    }
                 }
 
                 turns {
                     takes_main_turn true
-                    dispersed_bonus_turns 2
+                    dispersed_bonus_turns 3
                 }
             }
 
@@ -1697,12 +1723,7 @@ SpiderQueen {
         Trample 3
         StatusImmunity Webbed
 
-        SpawnThingOnDamage {
-            object TinySpider
-            good false //good relative to the thing attacking, for luck calculations
-            spawn_on_death_hit false
-            chance 50%
-        }
+        
     }
     
     ai {

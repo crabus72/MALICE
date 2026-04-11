@@ -4925,6 +4925,10 @@ QueenWeb {
         use_rotation false
         animation web
     }
+    
+    cost {
+        cantrip true
+    }
 
     target {
         min_range 1
@@ -4963,6 +4967,9 @@ QueenMinis {
         animation web
     }
     
+    cost {
+        cantrip true
+    }
 
     target {
         min_range 1
@@ -5030,7 +5037,7 @@ Spider_CalmDown {
 
     damage_instance {
         effects {
-            
+            Purge 0
             FormChange {
                 form "Default_Ground"
             }
@@ -20491,3 +20498,42 @@ BornKittenPlusGrounded { //exists just for the sake of animations not looking we
     }
 }
 
+QueenSwarm {
+    template lobbed_attack
+    
+    meta {
+        name "EABILITY_SPAWNSPIDERLING_NAME"
+    }
+
+    graphics {
+        projectile SpiderBall
+        use_rotation false
+        animation web
+    }
+    
+    cost {
+        cantrip true
+    }
+
+    target {
+        min_range 1
+        max_range 4
+
+        max_aoe 1
+        max_targets 2
+        multihit 2
+        stagger_multihit_targets true
+
+        restrictions aoe_must_exist
+        aoe_restrictions [must_be_partially_empty]
+    }
+
+    damage_instance {
+        damage 0
+        custom_additional_ai_weight tile_close_to_enemy
+        
+        effects {
+            BounceObject SpiderCat
+        }
+    }
+}
