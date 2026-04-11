@@ -1493,7 +1493,7 @@ SpiderQueen {
         tag bug
         faction enemies
         type boss
-        movement 3
+        movement 5
         mana_regen 999
         mana 100
         health 275
@@ -1506,7 +1506,7 @@ SpiderQueen {
 
     abilities {
         move DefaultMove
-        attack BasicBigMelee
+        attack SpineretteBasicAttack
         
         spells [
             Leave
@@ -1520,6 +1520,7 @@ SpiderQueen {
             ButtWeb_AlreadyEnraged
             ExtraMove
             BornKittenPlus
+            BornKittenPlusGrounded
         ]
     }
 
@@ -1529,6 +1530,7 @@ SpiderQueen {
 			common Spinnerets
 			rare SpiderBaby
 		}
+        TransformOnDeath [SpiderCat SpiderCatSpineretteHard]
         FormChanger {
             Start_Ceiling { //no AI until it's on map
                 passives {
@@ -1539,7 +1541,7 @@ SpiderQueen {
 
                     MoveTowardsKillers {
                         move_ability SpiderReturn
-                        character_filter [SpiderCat, TallSpiderCat]
+                        character_filter [SpiderCat, TallSpiderCat, SpiderCatSpineretteHard]
                     }
                     AutocastEachRound SpiderReturn
                     StartOffMap 1
@@ -1551,9 +1553,9 @@ SpiderQueen {
                     brain PatternBrain
 
                     pattern {
-                        do_priority [*QueenWeb, attack, QueenMinis]
-                        do_priority [*QueenMinis, QueenWeb]
-                        do_priority [attack, Leave]
+                        do_priority [*QueenWeb, *attack, QueenMinis] // I have no fucking idea how to make her use Web and Minis in 1 turn, so I'll have to leave these as is. I will probably come back to this soon
+                        do_priority [*QueenMinis, *QueenWeb, **BornKittenPlusGrounded]
+                        do_priority [*attack, *QueenWeb, *QueenMinis, **Leave]
                     }
 
                     decision_weights careless
@@ -1585,7 +1587,7 @@ SpiderQueen {
                     pattern {
                         do_priority [SpiderSpawn, BornKittenPlus]
                         do_priority [SpiderSpawn]
-                        do_priority [SpiderReturn]
+                        do_priority [SpiderSpawn, SpiderReturn]
                     }
 
                     decision_weights default_spawn_at_preferred_distance
@@ -1625,9 +1627,8 @@ SpiderQueen {
                     }
 
                     pattern {
-                        do_priority [attack, QueenMinis, BornKittenPlus]
-                        do_priority [attack, QueenMinis, BornKittenPlus]
-                        do_priority [attack, MoveAway, Spider_CalmDown]
+                        do_priority [*attack, QueenMinis, **BornKittenPlusGrounded, QueenWeb]
+                        do_priority [*attack, QueenWeb, QueenMinis, MoveAway, **Spider_CalmDown]
                     }
 
                     decision_weights careless
@@ -1663,7 +1664,7 @@ SpiderQueen {
                     pattern {
                         do_priority [SpiderSpawn, BornKittenPlus]
                         do_priority [SpiderSpawn, BornKittenPlus]
-                        do_priority [SpiderReturn]
+                        do_priority [SpiderSpawn, BornKittenPlus, SpiderReturn]
                     }
 
                     decision_weights default_spawn_at_preferred_distance
