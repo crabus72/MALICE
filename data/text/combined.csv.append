@@ -115,9 +115,9 @@ Hinterlässt Teerfelder, wenn es sich fortbewegt.","Il suo attacco a distanza cr
 Lascia delle caselle di Catrame lungo il suo percorso.","Seu ataque à distância cria espaços de piche.
 Deixa espaços de piche em seu caminho.",,,,
 ENEMY_CHUMBAG_NAME,Chum Bag,,Bolsa de cebo,Sac d'asticots,Ködertasche,Sacco di Pastura,Sacupincha,,,,
-ENEMY_CHUMBAG_DESC,Its long range attack spawns Maggots if it hits an empty tile. Becomes a Chummy when killed. Stationary.,,Su ataque a larga distancia genera gusanos si golpea en una casilla vacía. Se transforma en cebín al morir. No se mueve.,Son attaque à longue portée invoque des asticots si elle touche une case vide. Se change en caillasticot quand il est tué. Stationnaire.,"Ihr Fernkampfangriff ruft Maden, wenn er ein leeres Feld trifft. Wird zu Ködi, wenn sie stirbt. Stationär.",Il suo attacco a lunga distanza genera Larve quando colpisce caselle vuote. Se ucciso diventa un Pasturello. Stazionario.,Seu ataque de longa distância gera vermes se acertar um espaço vazio. Torna-se um cupincha ao ser morto. Fixo.,,,,
+ENEMY_CHUMBAG_DESC,"Its long range attack spawns Maggots in a area if it hits an empty tile. Inflicts Leech and Rot when it hits a enemy. Becomes a Chummy when killed. Stationary.",,Su ataque a larga distancia genera gusanos si golpea en una casilla vacía. Se transforma en cebín al morir. No se mueve.,Son attaque à longue portée invoque des asticots si elle touche une case vide. Se change en caillasticot quand il est tué. Stationnaire.,"Ihr Fernkampfangriff ruft Maden, wenn er ein leeres Feld trifft. Wird zu Ködi, wenn sie stirbt. Stationär.",Il suo attacco a lunga distanza genera Larve quando colpisce caselle vuote. Se ucciso diventa un Pasturello. Stazionario.,Seu ataque de longa distância gera vermes se acertar um espaço vazio. Torna-se um cupincha ao ser morto. Fixo.,,,,
 ENEMY_CHUMMY_NAME,Chummy,,Cebín,Caillasticot,Ködi,Pasturello,Cupincha,,,,
-ENEMY_CHUMMY_DESC,Dashes in a straight line.,,Corre en línea recta.,Fonce en ligne droite.,Stürmt in einer geraden Linie auf Gegner.,Scatta in linea retta.,Dá um impulso em linha reta.,,,,
+ENEMY_CHUMMY_DESC,Dashes in a straight line twice, inflicting Rot 3 and Poison 1.,,Corre en línea recta.,Fonce en ligne droite.,Stürmt in einer geraden Linie auf Gegner.,Scatta in linea retta.,Dá um impulso em linha reta.,,,,
 ENEMY_HOST_NAME,Host,,Huésped,Hôte,Wirt,Ospite,Hospedeiro,,,,
 ENEMY_HOST_DESC,"Shoots 3 projectiles in a spread.
 Reflects projectiles and knocks back units who contact it.
@@ -1346,7 +1346,7 @@ Contra-ataca ao sofrer golpes.",,,,
 ENEMY_MULTICAT_NAME,Multicat,cut enemy,Multigato,Multichat,Multikatze,Multigatto,Multigato,,,,
 ENEMY_MULTICAT_DESC,,,,,,,,,,,
 ENEMY_GLASSSPITTER_NAME,Glass Spitter,,Escupecristales,Crache-verre,Scherbenspucker,Sputavetro,Cospe-Vidro,,,,
-ENEMY_GLASSSPITTER_DESC,Its ranged attack spawns glass and inflicts Bleed.,,Su ataque a distancia genera cristal e inflige hemorragia.,Son attaque à distance fait apparaître du verre et inflige Saignement.,Sein Fernkampfangriff erzeugt Scherben und verursacht Blutung.,Il suo attacco a distanza genera vetro e infligge Sanguinamento.,Seu ataque à distância gera vidro e aplica sangramento.,,,,
+ENEMY_GLASSSPITTER_DESC,"Its ranged attack spawns glass in a large area and inflicts Bleed. Can throw Glass to other enemies, giving them Thorns.",,Su ataque a distancia genera cristal e inflige hemorragia.,Son attaque à distance fait apparaître du verre et inflige Saignement.,Sein Fernkampfangriff erzeugt Scherben und verursacht Blutung.,Il suo attacco a distanza genera vetro e infligge Sanguinamento.,Seu ataque à distância gera vidro e aplica sangramento.,,,,
 ENEMY_SIREN_NAME,Siren,,Sirena,Sirène,Sirene,Sirena,Sereia,,,,
 ENEMY_SIREN_DESC,Calls its enemies towards it and heals its adjacent allies.,,Atrae a los enemigos y cura a los aliados adyacentes.,Attire ses ennemis vers elle et soigne ses alliés adjacents.,Lockt Gegner an und heilt benachbarte Verbündete.,Attira i suoi nemici e cura i suoi alleati adiacenti.,Atrai inimigos na sua direção e cura aliados adjacentes.,,,,
 ENEMY_JEKYLL_NAME,Jekyll,,Jekyll,Jekyll,Jekyll,Jekyll,Jekyll,,,,

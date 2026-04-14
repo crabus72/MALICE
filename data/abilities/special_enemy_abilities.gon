@@ -2174,9 +2174,10 @@ SpitGlass {
     
     target {
         min_range 1
-        max_range 5
-        max_aoe 1
-        max_targets 2
+        max_range 7
+        max_aoe 2
+        max_targets 4
+        aoe_chance .75
 
         //restrictions [must_be_empty]
         //aoe_restrictions [must_be_empty, exclude_redundant_tilechanges]
@@ -2325,11 +2326,15 @@ ChumShot_Maggot {
     cost {
         mana 0
         charge 0
+        cantrip true
     }
-    
+ 
     target {
-        min_range 3
+        max_aoe 1
+        aoe_chance .75
+        min_range 1
         max_range 5+bonus_range
+        restrictions none
     }
 
     spawn {
@@ -2352,12 +2357,18 @@ ChumShot_Damage {
     }
 
     target {
-        min_range 3
+        max_aoe 1
+        aoe_chance .75
+        min_range 1
         max_range 5+bonus_range
+        restrictions none
+        can_multihit true
     }
 
     damage_instance {
         damage 4+bonus_ranged_damage
+        Leech 1
+        Rot 1
     }
 }
 ChumDash {
@@ -2391,6 +2402,8 @@ ChumDash {
     damage_instance {
         damage 5+bonus_melee_damage
         knockback 1
+        Rot 3
+        Poison 1
     }
 }
 
@@ -2403,7 +2416,8 @@ HostShove {
 
     damage_instance {
         damage 5+bonus_melee_damage
-        knockback 2
+        knockback 4
+        Bruise 1
     }
 }
 HostSpit {
@@ -2421,10 +2435,13 @@ HostSpit {
     target {
         aoe_mode custom
         custom_aoe [[1, 1] [1, 0] [1,-1]]
+        upgrade_straight_shot_to_piercing true
     }
 
     damage_instance {
         damage 4+bonus_ranged_damage
+        Bleed 1
+        piercing true
     }
 }
 
@@ -20560,6 +20577,71 @@ ClotShot {
 
         effects {
             BounceObject Clot
+        }
+    }
+}
+
+ChumDashTwo {
+    template dash_attack
+    
+    meta {
+        name "EABILITY_CHUMDASH_NAME"
+    }
+    
+    graphics {
+        dash_start_animation dashstart
+        dash_animation dash
+        //dash_end_animation dashend
+        dash_attack_animation dashend
+    }
+    
+    cost {
+        mana 5
+        cantrip true
+    }
+    
+    target {
+
+    }
+
+    temporary_effects {
+        /*LeaveBehind {
+            object Maggot
+        }*/
+    }
+    
+    damage_instance {
+        damage 5+bonus_melee_damage
+        knockback 1
+        Rot 3
+        Poison 1
+    }
+}
+
+ThrowSpikes {
+    template lobbed_attack
+
+    graphics {
+        projectile GlassBall
+        animation throwobject
+    }
+
+    cost {
+        mana 5
+        cantrip true
+    }
+
+    target {
+        min_range 1
+        max_range 2+level
+    }
+
+    damage_instance {
+        damage 0
+
+        effects {
+            Thorns 1
+            ObjectOnHitFullyEmpty GlassTile
         }
     }
 }

@@ -760,7 +760,7 @@ ChumBag {
         tag [blob trash]
         hidden_tag container
         auto_run_priority stationary
-        health 1
+        health 15
         movement 4
         faction enemies
         corpse_health 0
@@ -819,6 +819,10 @@ Chummy {
         move DefaultMove
         attack ChumDash
     }
+    
+    spells [
+        ChumDashTwo
+    ]
 
     passives {
 
@@ -852,10 +856,10 @@ Host {
     properties {
         tag [blob undead]
         auto_run_priority stationary
-        health 13
+        health 20
         movement 2
         faction enemies
-        dispersed_bonus_turns 1
+        dispersed_bonus_turns 2
     }
 
     abilities {
@@ -872,11 +876,7 @@ Host {
             self_damage 2
         }
 
-        MeleeRevengeDamage {
-            type status
-            damage 0
-            knockback 2
-        }
+        CounterAttack HostShove
 
     }
     
