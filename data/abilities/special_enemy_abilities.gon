@@ -2245,6 +2245,7 @@ PopeyeDash {
     
     cost {
         mana 5
+        cantrip true
     }
     
     target {
@@ -20642,6 +20643,152 @@ ThrowSpikes {
         effects {
             Thorns 1
             ObjectOnHitFullyEmpty GlassTile
+        }
+    }
+}
+
+FurySwipes_Hyde {
+    template melee_attack
+    
+    meta {
+        name "EABILITY_FURYSWIPES_NAME"
+    }
+
+    graphics {
+    }
+
+    cost {
+        mana 6
+    }
+
+    temporary_effects {
+        Fury 75
+    }
+
+    damage_instance {
+        damage 2+bonus_melee_damage
+        type melee
+        effects{
+            Bleed 1
+            Bruise 1
+        }
+    }
+}
+
+SuplexHyde {
+    template melee_attack
+    class SuplexAbility
+    
+    meta {
+        name "ABILITY_SUPLEX_NAME"
+        desc "ABILITY_SUPLEX_DESC"
+    }
+
+    graphics {
+        animation suplex
+    }
+
+    cost {
+        cantrip true
+        mana 5
+    }
+
+    target {
+        knockback_mode zero
+        aoe_considers_character_size false
+        
+        target_mode tile
+        restrictions [aoe_must_be_displaceable must_have_character]
+        range_mode standard
+        aoe_mode standard
+        min_range 1
+        max_range 1
+        min_aoe 0 
+        max_aoe 0 
+    }
+
+    damage_instance {
+        damage 3+bonus_melee_ability_damage
+        type melee
+        blocked_multiplier 2
+        makes_contact false
+        effects{
+            Bruise 1
+            Stun [1, .25]
+        }
+    }
+}
+
+PopeyeDislocateJaw {
+    template melee_attack
+    
+    graphics {
+        animation heavyMelee
+    }
+
+    cost {
+        cantrip true
+    }
+
+    damage_instance {
+        damage 8+bonus_melee_ability_damage
+        type melee
+
+        effects {
+            Bruise 3
+            Weakness 1
+        }
+
+    }
+}
+
+SirenBuff {
+    template spell
+
+    meta {
+        name "EABILITY_PROTECT_NAME"
+    }
+
+    graphics {
+        affected_particle fx_shield
+        animation pray
+    }
+
+    target {
+        max_aoe 2
+        max_range 6
+    }
+
+    cost {
+        cantrip true
+    }
+    
+    damage_instance {
+        heal 1
+
+        effects {
+            Shield 3
+            RandomStatUp 1
+        }
+    }
+}
+
+SpikeUp {
+    template self_buff
+
+    graphics {
+        animation hiss
+    }
+    
+    cost {
+        cantrip true
+        mana 3
+    }
+    
+    damage_instance {
+        effects {
+            Thorns 2
+            BleedThorns 1
         }
     }
 }

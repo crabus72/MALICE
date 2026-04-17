@@ -323,7 +323,7 @@ Siren {
         tag [cat siren]
         type cat
         auto_run_priority support
-        health 7
+        health 11
         base_mana_regen 999
         faction enemies
         initiative 5
@@ -334,7 +334,8 @@ Siren {
         attack SirenCall
         
         spells [
-
+            MarshmallowConvert
+            SirenBuff
         ]
     }
 
@@ -351,7 +352,7 @@ Siren {
         move_weights stay_near_allies_siren
 
         pattern {
-            do SirenCall
+            move_then_do_all [SirenBuff, SirenCall, MarshmallowConvert]
         }
     }
 }
@@ -380,7 +381,7 @@ Jekyll {
     properties {
         tag cat
         type cat
-        health 7
+        health 15
         base_mana_regen 999
         faction enemies
         initiative 12
@@ -397,7 +398,9 @@ Jekyll {
 
     passives {
         CanMutateTo Hyde
-        MutateAfterXTurns 3
+        MutateAfterXTurns 2
+        CounterAttack BasicMelee
+        Brace 1
     }
     
     ai {
@@ -427,7 +430,7 @@ Hyde {
         dexterity 5
         constitution 5
         intelligence 5
-        speed 5
+        speed 8
         charisma 5
         luck 5
     }
@@ -435,23 +438,26 @@ Hyde {
     properties {
         tag cat
         type cat
-        health 20
+        health 30
         base_mana_regen 999
         faction enemies
         initiative 10
-        dispersed_bonus_turns 1
+        dispersed_bonus_turns 2
     }
 
     abilities {
         move DefaultMove
-        attack FurySwipes_Enemy
+        attack FurySwipes_Hyde
         
         spells [
-
+            SuplexHyde
         ]
     }
 
     passives {
+        Brace 3
+        HealthRegenUp 2
+        CounterAttack SuplexHyde
     }
     
     ai {
@@ -476,15 +482,15 @@ SpikedCat {
         dexterity 5
         constitution 5
         intelligence 5
-        speed 5
+        speed 6
         charisma 5
         luck 5
     }
     
     properties {
         type cat
-        health 5
-        shield 8
+        health 10
+        shield 15
         base_mana_regen 999
         faction enemies
         initiative 10
@@ -492,14 +498,15 @@ SpikedCat {
 
     abilities {
         move DefaultMove
-        attack BasicMelee
+        attack LacerateKitten
         
         spells [
-
+            SpikeUp
         ]
     }
 
     passives {
+        BleedThorns 1
         Thorns 3
     }
     
@@ -541,10 +548,10 @@ PopeyeCat {
 
     abilities {
         move DefaultMove
-        attack PopeyeDash
+        attack PopeyeDislocateJaw
         
         spells [
-
+            PopeyeDash
         ]
     }
 
