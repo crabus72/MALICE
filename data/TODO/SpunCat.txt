@@ -1,0 +1,229 @@
+
+//This goes in cat_enemies.gon
+NeedleCat.overwrite {
+    graphics {
+        movieclip _CAT
+        name "Special SpunCat"
+        custom_cat_data Needlecat
+        scale 1
+        shadow_size 1
+
+        tooltip "Has an item that allows him to cast any spell of the class he currently is also mimics the class auto"
+    }
+
+    stats {
+        strength 5
+        dexterity 5
+        constitution 5
+        intelligence 5
+        speed 5
+        charisma 5
+        luck 5
+    }
+    
+    properties {
+        tag cat
+        type cat
+        health 10
+        faction enemies
+        base_mana_regen 999
+    }
+
+    abilities {
+        move DefaultMove
+        attack BasicMelee
+        
+        spells [
+            
+        ]
+    }
+
+    passives {
+        FormChanger { //dumb hack to get per-class portraits
+            Colorless{}
+            Fighter{}
+            Hunter{}
+            Mage{}
+            Medic{}
+            Tank{}
+            Thief{}
+            Butcher{}
+            Druid{}
+            Necromancer{}
+            Psychic{}
+            Monk{}
+            Tinkerer{}
+            Jester{}
+        }
+
+        RandomPassivePool {
+            PassiveGroup {
+                ReplaceBasicAttack BasicMelee
+                EquipTemporaryItem FighterRemote
+                CatPartsTransform {
+                    palette Fighter
+                }
+                FormChange Fighter
+            }
+            PassiveGroup {
+                ReplaceBasicAttack BasicRanged
+                EquipTemporaryItem HuntersRemote
+                CatPartsTransform {
+                    palette Hunter
+                }
+                FormChange Hunter
+            }
+            PassiveGroup {
+                ReplaceBasicAttack BasicMagicShortRanged
+                EquipTemporaryItem MageRemote
+                CatPartsTransform {
+                    palette Mage
+                }
+                FormChange Mage
+            }
+            PassiveGroup {
+                ReplaceBasicAttack BasicMedicMelee
+                EquipTemporaryItem ClericRemote
+                CatPartsTransform {
+                    palette Medic
+                }
+                FormChange Medic
+                StatusCarefulness 1 //needed so it wont do random status effects if it heals
+            }
+            PassiveGroup {
+                ReplaceBasicAttack BasicTankMelee
+                EquipTemporaryItem TankRemote
+                CatPartsTransform {
+                    palette Tank
+                }
+                FormChange Tank
+            }
+            PassiveGroup {
+                ReplaceBasicAttack BasicStraightShot
+                EquipTemporaryItem ThiefRemote
+                CatPartsTransform {
+                    palette Thief
+                }
+                FormChange Thief
+            }
+            PassiveGroup {
+                ReplaceBasicAttack BasicButcherMelee
+                EquipTemporaryItem ButcherRemote
+                CatPartsTransform {
+                    palette Butcher
+                }
+                FormChange Butcher
+            }
+            PassiveGroup {
+                ReplaceBasicAttack BasicDruidAbility
+                EquipTemporaryItem DruidRemote
+                CatPartsTransform {
+                    palette Druid
+                }
+                FormChange Druid
+                StatusCarefulness 1 //needed so it wont do random status effects if it heals
+                SelfStatusCarefulness 1
+            }
+            PassiveGroup {
+                ReplaceBasicAttack BasicNecroRanged
+                EquipTemporaryItem NecromancerRemote
+                CatPartsTransform {
+                    palette Necromancer
+                }
+                FormChange Necromancer
+            }
+            PassiveGroup {
+                ReplaceBasicAttack BasicPsychicPull
+                EquipTemporaryItem PsychicRemote
+                CatPartsTransform {
+                    palette Psychic
+                }
+                FormChange Psychic
+            }
+            PassiveGroup {
+                ReplaceBasicAttack BasicMonkMelee
+                EquipTemporaryItem MonksRemote
+                CatPartsTransform {
+                    palette Monk
+                }
+                FormChange Monk
+                ExtraBasicAttacks 1
+            }
+            PassiveGroup {
+                EquipTemporaryItem TinkererRemote
+                TinkererBasicAttackSwitching {
+                    craft_ability TinkererCraft
+                    throw_ability TinkererThrow
+                }
+                CatPartsTransform {
+                    palette Tinkerer
+                }
+                FormChange Tinkerer
+                SelfStatusCarefulness 1 //needed so it wont do random status effects on itself
+            }
+             PassiveGroup {
+                ReplaceBasicAttack SmartMetronome2
+                EquipTemporaryItem Metronome
+                EquipTemporaryItem JesterHat
+                CatPartsTransform {
+                    palette Jester
+                }
+                FormChange Jester
+            }
+             PassiveGroup {
+                ReplaceBasicAttack BasicLobbed
+                EquipTemporaryItem CollarlessRemote
+                CatPartsTransform {
+                    palette 20
+                }
+                FormChange Colarless
+            }
+        }
+
+        RandomPassivePool {
+            AddStatusToBasicAttack {
+                Burn 1
+            }
+            AddStatusToBasicAttack {
+                Poison 1
+            }
+            AddStatusToBasicAttack {
+                Bleed 1
+            }
+            AddStatusToBasicAttack {
+                RandomStatUp -1
+            }
+            AddStatusToBasicAttack {
+                Bruise 1
+            }
+            AddStatusToBasicAttack {
+                Rot 1
+            }
+            AddStatusToBasicAttack {
+                Fear 1
+            }
+            AddStatusToBasicAttack {
+                Slow 1
+            }
+            AddStatusToBasicAttack {
+                DamageUp -1
+            }
+            AddStatusToBasicAttack {
+                Weakness 1
+            }
+        }
+    }
+    
+    ai {
+        brain PatternBrain
+        mainturn_pattern {
+            do_all [move attack weapon trinket]
+        }
+        bonusturn_pattern {
+             do_all [move attack weapon trinket]
+        }
+
+        decision_weights always_cast
+        move_weights keep_distance
+    }
+}

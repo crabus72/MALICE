@@ -1,0 +1,320 @@
+wp_NecromancerRemote {
+    template self_buff
+
+    meta {
+        name "{itemname}"
+    }
+
+    graphics {
+        animation weaponspell3
+    }
+    
+    cost {
+        mana 0
+        cantrip true
+    }
+
+    damage_instance {
+        ai_base_score 99999
+        effects {
+            PoolMetronome {
+                pool [MaggotArmy Reanimate SoulSuck SoulLink WeAreOne AnimateDead SummonShade Unearth SummonBones Bloodletting MassPsychosis Seance GoLimp DemonicPact Curse Feed ForbiddenFamine FleshGolem AbsorbSoul ClewOfLeeches Rebirth Scare DarkStep Replace ReapCoffinFlop ReaperStep Gravecrawl DigUpTheDead  Weakness EvilIncarnate BloodRain SoulTransfer Whisper Shriek FullMoon Flatline DonateBlood Hush TradeLife  Pestilence DeathBloom Leeches BloodGeyser GigaDrain Debone CarrionShot LifeDrain LeechSwarm SpiderEgg]
+            }
+        }
+    }
+}
+wp_HuntersRemote {
+    template self_buff
+
+    meta {
+        name "{itemname}"
+    }
+
+    graphics {
+        animation weaponspell3
+    }
+    
+    cost {
+        mana 0
+        cantrip true
+    }
+
+    damage_instance {
+        ai_base_score 99999
+        effects {
+            PoolMetronome {
+                pool [LineShot SpawnMaggotFriend SpawnPooterFriend Marked HailOfNails ScatterShot BrambleShot BearTrap TwinShot CrossShot SpawnBaitTrap BombShot SummonBrambles FireShot FocusShot Shards TerrainWalk Extend ChaosShot NeedleShot SpikeTrap FleaShot  WebTrap LastHit CupidsArrow ArrowFlurry HeavyShot StakeOut BallOfSpiders Snipe Diversion ArrowSmith TacticalRetreat Infest CollectPelt SentryMode Pheromones SpawnTomTomFriend ScoutMe CraftArrow CharmTrap BounceShot Picnic SoothingShot Vivisect PoisonLace SlopThePigs SpiderInjector PersistentHunt Bunker]
+            }
+        }
+    }
+}
+wp_DruidsRemote {
+    template self_buff
+
+    meta {
+        name "{itemname}"
+    }
+
+    graphics {
+        animation weaponspell3
+    }
+    
+    cost {
+        mana 0
+        cantrip true
+    }
+
+    damage_instance {
+        ai_base_score 99999
+        effects {
+            PoolMetronome {
+                pool [ ManaBomb SongOfSpring GrantLife SquirrelSquad SummonSquirrel DruidSwap BattleCry SummonSnake SummonTurtle SummonToad SummonBear PullToSafety BrambleBurst FlowerFeet ThornyFeet Encourage Protection Promote SafetyDance WarCry TigerForm MonkeyForm RhinoForm SummonCatepillar CallTheWind InspirationalSong DeathMetal ChaChaSlide BestowWisdom RaccoonForm SummonCrow WeWillRockYou TreeForm HydroPump ControlPlants ControlWater ControlAir Entangle Lullaby WeAreTheChampions Cheerlead NaturesBlessing ThrowEgg SquirrelForm PlantMushroom Serenade WindyStep ElkForm MockingbirdForm FromTheTrees]
+            }
+        }
+    }
+}
+wp_FightersRemote {
+    template self_buff
+
+    meta {
+        name "{itemname}"
+    }
+
+    graphics {
+        animation weaponspell3
+    }
+    
+    cost {
+        mana 0
+        cantrip true
+    }
+
+    damage_instance {
+        ai_base_score 99999
+        effects {
+            PoolMetronome {
+                pool [Spin Dash FirePunch IcePunch ThunderPunch FurySwipes SideSlash FighterLeap Uppercut Counter TailWhip Poke Nip Push FalconPunch Exert Enrage Tumble Confront Juiced CosmicPunch FighterTaunt GravitySlam Berserk Challenge Stoopzerk SleeperHold Grapple ThinkTooHard Zoomzerk Bloodzerk ExhaustingBlow ChaosRampage MeteorSlam MuscleMemory Inhale OneTwoPunch TeamSpin TeamFlex Huddle RagePunch BreakingPoint AssertDominance DumbMove SuckerPunch Stick Hurl BigPunch Pawbreaker Ram]
+            }
+        }
+    }
+}
+wp_MagesRemote {
+    template self_buff
+
+    meta {
+        name "{itemname}"
+    }
+
+    graphics {
+        animation weaponspell3
+    }
+    
+    cost {
+        mana 0
+        cantrip true
+    }
+
+    damage_instance {
+        ai_base_score 99999
+        effects {
+            PoolMetronome {
+                pool [Surf Bolt Fireball FreezeRay MagicMissile Blast WallOfFire HyperBeam MeteorStorm MegaBlast Slow WindSlash MageTeleport MageSwap Absorb Warp ManaMeld Inspire Telefrag ChaosTeleport CryoHeal Gust Blizzard Inferno Thunderburst DealWithTheDevil ForbiddenFlame ForbiddenFlood WaterSphere ChainLightning Shatter ForbiddenFulmination FireBolt IcicleTaser FreezerBurn Corrupt Jolt Smolder FireSurge IceSurge LightningSurge Creshendo Divide ForbiddenFrost BlackMagic Teach HomingBlasts Replicate Magnify TriAttack]
+            }
+        }
+    }
+}
+wp_ButchersRemote {
+    template self_buff
+
+    meta {
+        name "{itemname}"
+    }
+
+    graphics {
+        animation weaponspell3
+    }
+    
+    cost {
+        mana 0
+        cantrip true
+    }
+
+    damage_instance {
+        ai_base_score 99999
+        effects {
+            PoolMetronome {
+                pool [HogRush Burp SelfMutilate ForceFeed Fartoom Mutilate SkullBash Shred Chomp Succ Trudge BodySlam Consume BloodMagic SmellBlood Vurp SliceAndDice LunchTime Tromp LightenTheLoad Crushinator CannonBall Monch DeathWind Spoil Grill Roast BadGas ButcherPurge Binge MyTurn Gib Swallow Track Sharpen FireFart RoughToss TaintedOffering DeliciousScent Cough Reflux Tryptophan HookBind Regurge Grapnel Rehook Contaminate LodgeHook Butcher Chonkwalk]
+            }
+        }
+    }
+}
+wp_PsychicRemote {
+    template self_buff
+
+    meta {
+        name "{itemname}"
+    }
+
+    graphics {
+        animation weaponspell3
+    }
+    
+    cost {
+        mana 0
+        cantrip true
+    }
+
+    damage_instance {
+        ai_base_score 99999
+        effects {
+            PoolMetronome {
+                pool [ Telekinesis Suggestion MindControl MegaGrav PsyFlutter MagnetPull MindBlast PsychicChoke SkyShatter Supernova AlterDNA Flicker MindMeld Vaccuum Ping FlashForward Order TemporalShards RealityScramble Glare BlindingFlash Snatch FutureSight MassManaLeech BecomeEntropy FastForward AncestralRecall CumulativeBlast Hallucinate MassHysteria ExtraTurnQuestion MindCrack Reset Mimic ChaosSwap Asteroid Stasis Pass ThinkDeep Puppet YouSeeNothing ForceBlast IncreaseGravity Manifest Flip Withdraw ForceCone Inversion Echo Slipstream]
+            }
+        }
+    }
+}
+wp_TanksRemote {
+    template self_buff
+
+    meta {
+        name "{itemname}"
+    }
+
+    graphics {
+        animation weaponspell3
+    }
+    
+    cost {
+        mana 0
+        cantrip true
+    }
+
+    damage_instance {
+        ai_base_score 99999
+        effects {
+            PoolMetronome {
+                pool [HeadButt ThrowShield ChewCud AssBlast Chew BatterUp BackBreaker Suplex Intimidate Toss BellyFlop TankTrample TankSwap ToTheRescue TankTantrum Earthquake RockToss BarbedWire DrawAttention BowlOver Clap TankRockSong RockCrusher BodyGuard Gore RockBlast RockTomb BearHug Fissure BigRock FlipFlop Lunge Nudge StoneGaze Medusa Anchor EatRock PlantFeet IronHead GangUp Aftershock SteelSkin FaultLine Demolish PushThrough Spur Supper FullForce Sandstorm Thicken]
+            }
+        }
+    }
+}
+ wp_ThievesRemote {
+    template self_buff
+
+    meta {
+        name "{itemname}"
+    }
+
+    graphics {
+        animation weaponspell3
+    }
+    
+    cost {
+        mana 0
+        cantrip true
+    }
+
+    damage_instance {
+        effects {
+            PoolMetronome {
+                pool [ MoveAgain Assassinate BoostBackstab PoisonGas PoisonNail WeakeningNail SharpNail CoinToss Shadow TimeWalk Distract Rebound CutPurse EagleEye PickPocket Blur GreedStep Stalk Backflip AttackAgain NailFlurry Declaw QuickRoll Slice PocketSand Nightshade Shadowshift SlingShade Caltrops PierceShot Cheat VenomBarrage LootCorpse SeverArtery Fade SharpenNail SneakUp StealKidney StealLuck ThiefSwap Pierce WindUp TripleNails SkinDisguise Jitter Chakram StealTime Outskirts PoisonDip LuckyPenny]
+            }
+        }
+    }
+}
+wp_MonksRemote {
+    template self_buff
+
+    meta {
+        name "{itemname}"
+    }
+
+    graphics {
+        animation weaponspell3
+    }
+    
+    cost {
+        mana 0
+        cantrip true
+    }
+
+    damage_instance {
+        effects {
+            PoolMetronome {
+                pool [Propell Hadouken Cartwheel StoneFists Transcend HipToss Bruise Slapback Finisher Reverberate ComboThrow ComboPull OneWithTheWind Pogo TrainArms Porcupine Anneal DeepDive HopAndBlock TrainMind Meditate DoomPunch KiBurst DragonPunch TrainLegs ReallyFastRun DetectWeakness HundredHandSlap KineticCharge AirBurst TrainBody ReleaseEnergy Pummel QuickAttack PerfectForm WarmupStretch FlyingFist SpiritBomb OnePunch UnbridledHits Kamehameha SideStep UnimpededLunge DoubleDragon FistOfFate2 Nirvana EmptyMind Position ChargeFists Apprentice]
+            }
+        }
+    }
+}
+wp_ClericsRemote {
+    template self_buff
+
+    meta {
+        name "{itemname}"
+    }
+
+    graphics {
+        animation weaponspell3
+    }
+    
+    cost {
+        mana 0
+        cantrip true
+    }
+
+    damage_instance {
+        effects {
+            PoolMetronome {
+                pool [RangedHeal MeleeHeal Malaise OpenWounds Prayer Convert Cleanse HereticMark Zealot Haste Rally BuddyUp HealingFall RallyCharge ReverseDamage Rebuke Wish WitchHunt FriendOrFoe Revive HolyLight Ethereal BornAgain Benediction Crusade Enlighten HallowedGround Anoint EyeForAnEye WrathOfGod Adoubement DivineProtection ChosenWarrior SwiftSanctify GetDown DivineGift HolyWeapon Awaken Baptism2 Pray Emergency GuardianAngel Booster2 Stimulants BlindingLight CircleOfProtection CallOver Grace TurnFoe HealingSalve]
+            }
+        }
+    }
+}
+wp_CollarlessRemote {
+    template self_buff
+
+    meta {
+        name "{itemname}"
+    }
+
+    graphics {
+        animation weaponspell3
+    }
+    
+    cost {
+        mana 0
+        cantrip true
+    }
+
+    damage_instance {
+        effects {
+            PoolMetronome {
+                pool [Block2 Rest2 Brace2 Roll2 SharpenClaws2 Reach2 ManaDrain2 SoothingGlow2 Ponder2 Brainstorm2 Focus2 Metabolize2 GainThorns2 PrepareToJump2 BoostSpellRange2 PushMove2 Gamble2 SoulReap2 Hunt2 Flex2 Dart2 Smack2 Spit2 MiniHook2 MiniDistract2 ButtScoot2 Confusion2 Reflect2 PlayDead2 HealBolt2 SlipThrough2 Dump2 Snacks2 FeatherFeet2 Reduce2 Nerf2 Trip2 Copycat2 Metronome2 DollUp2 StackTheDeck2 Infiltrate2 Burst2 Suppress2 Endeavor2 LotteryShottery2 CatNap2 PissYourself2 FindARock2 BurgeoningBlast2 BurgeoningBarrier2 BurgeoningBattery2 HoseOff2 Taint2 PokeWound2 WasteTime2 Desecrate2 Contort2 RussianRoulette2 Step2 Interchange2 LookAtMe2 Rouse2 Shift2 Donate2 Magnet2 ScuffItOff2 BarfBall2 DexterousHit2 Till2 Itch2 Meow2 Swat2 LickHeal2 Purr2 Hiss2 Knead2 VetVisit2 HireHitman2 SubwayRide2 GymMembership2 SuperCrateBox2 BBQ2 CPR2 Blow2 Toast2 Landscape2 Zap2 Sunburn2 ColdShoulder2 BlowKiss2 ForbiddenFart2 WetHairball2]
+            }
+        }
+    }
+}
+wp_TinkererRemote {
+    template self_buff
+
+    meta {
+        name "{itemname}"
+    }
+
+    graphics {
+        animation weaponspell3
+    }
+    
+    cost {
+        mana 0
+        cantrip true
+    }
+
+    damage_instance {
+        effects {
+            PoolMetronome {
+                pool [Research2 Discharge Repair ShoddyJetpack SpawnDecoy SpringShoes AutoPilot Recycle BuildTurret2 RocketSkates2 DrillDown ArmorUp FreshOffTheForge ElectricNail Craft Shockwave Math Reprogram Improve Catbot Bombchu RemoteDetonator EjectButton ShortCircuit Electrolyze Firecrackers Upgrade2 Eureka PunchBot FastHands MechSuit2 UnreliableShield UnreliableMissile SpareParts BatteryNuke ExperimentalTeleporter ShockTherapy BuildNuke InstantBarrier VoltTackle Smash ShedScrap RepairArmor RocketRide RoboVac2 NurseBot2 TeslaCoil2 RefineMaterials Fabricate Sparks]
+            }
+        }
+    }
+}

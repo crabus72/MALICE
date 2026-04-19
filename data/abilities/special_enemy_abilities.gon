@@ -1150,16 +1150,18 @@ XLightning {
     }
 }
 
-DoubleDiagonalCreepshot {
-    template straightshot_attack
+DoubleDiagonalCreepshot { //not really diagonal now is it
+    template lobbed_attack
 
     graphics {
         projectile LobbedProjectile
     }
 
     target {
-        aoe_mode custom
-        custom_aoe [[1, 1] [1,-1]]
+        target_mode direction
+        aoe_mode cone
+        min_aoe 1
+        max_aoe 4
     }
 
     damage_instance {
@@ -1167,6 +1169,8 @@ DoubleDiagonalCreepshot {
         
         effects {
             SpawnCreep 1
+            Poison 1
+            Tangled 1
         }
     }
 }
@@ -1176,7 +1180,7 @@ ShortCreepshot {
 
     target {
         min_range 1
-        max_range 1
+        max_range 3
     }
 
     damage_instance {
@@ -1184,6 +1188,7 @@ ShortCreepshot {
         
         effects {
             SpawnCreep 1
+            Poison 1
         }
     }
 }
@@ -1213,6 +1218,7 @@ CanCreeperSlide {
 
     cost {
         mana 0
+        cantrip true
     }
 
     graphics {
@@ -1235,6 +1241,10 @@ CanCreeperSlide {
     damage_instance {
         damage 4+bonus_melee_damage
         ai_base_score 9999
+        effects {
+            Confusion 1
+            Poison 1
+        }
     }
 }
 
@@ -20789,6 +20799,71 @@ SpikeUp {
         effects {
             Thorns 2
             BleedThorns 1
+        }
+    }
+}
+
+CanCreeperSlideTwo {
+    template trample_dash
+    
+    meta {
+        name "EABILITY_SLIDE_NAME"
+    }
+
+    cost {
+        mana 0
+        cantrip true
+    }
+
+    graphics {
+        dash_start_animation launchStart
+        dash_animation launchMid
+        dash_end_animation launchStop
+    }
+
+    temporary_effects {
+        Trample 3
+        LeaveBehind {
+            object Fly
+        }
+    }
+
+    target {
+        max_range 6
+    }
+
+    damage_instance {
+        damage 4+bonus_melee_damage
+        ai_base_score 9999
+        effects {
+            Confusion 1
+            Poison 1
+        }
+    }
+}
+
+UncannedCreeperSpew { 
+    template lobbed_attack
+
+    graphics {
+        projectile LobbedProjectile
+    }
+
+    target {
+        target_mode direction
+        aoe_mode cone
+        min_aoe 1
+        max_aoe 3
+        restrictions must_have_liquid
+    }
+
+    damage_instance {
+        damage 5+bonus_ranged_damage
+        
+        effects {
+            SpawnCreep 1
+            Poison 1
+            Tangled 1
         }
     }
 }

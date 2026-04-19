@@ -1,0 +1,107 @@
+/*enemy_items.append { Forget this this is only for patch files
+
+}*/
+NecromancerRemote {
+    name "Necromancer Remote"
+    desc "casts a random necromancer spell"
+    kind weapon
+    frame 95
+
+    ability wp_NecromancerRemote
+}
+HuntersRemote {
+    name "Hunter Remote"
+    desc "casts a random hunter spell"
+    kind weapon
+    frame 95
+
+    ability wp_HuntersRemote
+}
+MageRemote {
+    name "Mage Remote"
+    desc "casts a random mage spell"
+    kind weapon
+    frame 95
+
+    ability wp_MagesRemote
+}
+FighterRemote {
+    name "Mage Remote"
+    desc "casts a random Fighter spell"
+    kind weapon
+    frame 95
+
+    ability wp_FightersRemote
+}
+ButcherRemote {
+    name "Butcher Remote"
+    desc "casts a random Butcher spell"
+    kind trinket
+    frame 95
+
+    ability wp_ButchersRemote
+}
+DruidRemote {
+    name "Druid Remote"
+    desc "casts a random Druid spell"
+    kind weapon
+    frame 95
+
+    ability wp_DruidsRemote
+}
+PsychicRemote {
+    name "Psychic Remote"
+    desc "casts a random Psychic spell"
+    kind weapon
+    frame 95
+
+    ability wp_PsychicRemote
+}
+TankRemote {
+    name "Tank remote"
+    desc "casts a random Tank spell"
+    kind weapon
+    frame 95
+
+    ability wp_TanksRemote
+}
+ThiefRemote {
+    name "Thief Remote"
+    desc "casts a random Thief spell"
+    kind weapon
+    frame 95
+
+    ability wp_ThievesRemote
+}
+ClericRemote {
+    name "Cleric Remote"
+    desc "casts a random Cleric spell"
+    kind weapon
+    frame 95
+
+    ability wp_ClericsRemote
+}
+TinkererRemote {
+    name "Tinkerer"
+    desc "casts a random Tinkerer"
+    kind trinket
+    frame 95
+
+    ability wp_TinkererRemote
+}
+MonksRemote {
+    name "Monks Remote"
+    desc "casts a random Monk Spell"
+    kind weapon
+    frame 95
+
+    ability wp_MonksRemote
+}
+CollarlessRemote {
+    name "Colarless remote"
+    desc "casts a random upgraded Collarless spell"
+    kind weapon
+    frame 95
+
+    ability wp_CollarlessRemote
+}

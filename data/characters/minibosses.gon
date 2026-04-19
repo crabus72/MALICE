@@ -32,7 +32,7 @@ CanCreeper {
         mana_regen 999
         mana 100
         
-        health 40
+        health 80
         always_triggers_traps true
     }
 
@@ -42,6 +42,7 @@ CanCreeper {
         
         spells [
             CanCreeperSlide
+            CanCreeperSlideTwo
         ]
     }
 
@@ -70,7 +71,7 @@ CanCreeper {
 
 
         bonusturn_pattern {
-            do_strict [*CanCreeperSlide, MoveCenter]
+            do_strict [*CanCreeperSlide, *CanCreeperSlideTwo MoveCenter]
         }
 
         decision_weights default
@@ -108,7 +109,7 @@ CanCreeperOut {
         mana_regen 999
         mana 100
         
-        health 20
+        health 50
     }
 
     abilities {
@@ -117,6 +118,8 @@ CanCreeperOut {
         
         spells [
             MoveOne
+            DrinkUp
+            UncannedCreeperSpew
         ]
     }
 
@@ -130,7 +133,7 @@ CanCreeperOut {
         brain PatternBrain
 
         pattern {
-            do attack
+            do_all [*attack, DrinkUp, **UncannedCreeperSpew]
         }
 
         decision_weights default
