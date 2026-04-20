@@ -5,4 +5,6 @@ All the abilities and attacks they can perform are in their tooltips. (yes, we i
 ## CREDITS
 Starblock - Code; 
 
-Odoo Man - Code, Throbbing Domain related changes to enemies
+Odoo Man - Code, Throbbing Domain related changes to enemies;
+
+JamJuice - Mod Icon
