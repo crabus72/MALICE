@@ -16073,6 +16073,7 @@ TrampyDump {
         effects {
             Displace 1
             Poison 2
+            Rot 1
             ObjectOnHit {
                 object Poop
             }
@@ -16100,7 +16101,7 @@ TrampySpit {
 
     target {
         min_range 2
-        max_range 3
+        max_range 5
     }
 
     damage_instance {
@@ -16109,6 +16110,7 @@ TrampySpit {
         effects {
             Blind 2
             Slow 2
+            Confusion 3
         }
     }
 }
@@ -16122,9 +16124,9 @@ TrampyFleas {
 
     target {
         target_mode none    
-        max_aoe 1
-        max_targets 2
-        multihit 2
+        max_aoe 3
+        max_targets 3
+        multihit 3
         stagger_multihit_targets true
     }
 
@@ -16162,15 +16164,16 @@ TrampySleep {
     }
 
     self_damage {
-        heal 5
+        heal 10
         cant_miss true
 
         effects {
             Conditional_InForm {
                 form Default
 
-                SpeedUp 1
-                DamageUp 1
+                SpeedUp 2
+                DamageUp 2
+                TakeExtraTurn 1
                 DodgeChance_Status 20
                 CritChanceUp 20
 
@@ -20864,6 +20867,30 @@ UncannedCreeperSpew {
             SpawnCreep 1
             Poison 1
             Tangled 1
+        }
+    }
+}
+
+TrampyKickAss {
+    template melee_attack
+
+    graphics {
+        animation Default
+    }
+
+    cost {
+        cantrip true
+    }
+
+    damage_instance {
+        damage 6+bonus_melee_damage
+        
+        effects {
+            Immobile 1
+            Bruise 2
+            KnockUpAndAway {
+                distance 3
+            }
         }
     }
 }

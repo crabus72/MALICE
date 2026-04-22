@@ -2887,7 +2887,8 @@ Trampy {
         faction enemies
         type boss
 
-        health 99
+        health 100
+        shield 20
 
         movement 3
 
@@ -2897,21 +2898,20 @@ Trampy {
 
     abilities {
         move DefaultMove
-        attack BasicMelee
+        attack TrampyKickAss
         
         spells [
             TrampyDrink
             TrampyDump
             TrampySpit
             TrampyFleas
-            TrampySleep
         ]
     }
 
     passives {
         MissChance 20
         //DodgeChance_Status 20
-        //CritChanceUp 20
+        CritChanceUp 20
 
         FormChanger {
             Default {
@@ -2921,9 +2921,9 @@ Trampy {
                     move_weights trampy_chaos
 
                     pattern {
-                        do_random [attack TrampyDump TrampySpit TrampyFleas TrampySleep]
-                        do_random [attack TrampyDump TrampySpit TrampyFleas TrampySleep]
-                        do_random [attack TrampyDump TrampySpit TrampyFleas TrampySleep]
+                        do_random [attack TrampyDump TrampySpit TrampyFleas]
+                        do_random [attack TrampyDump TrampySpit TrampyFleas]
+                        do_random [attack TrampyDump TrampySpit TrampyFleas]
                         do_priority [*TrampyDrink TrampyDrink]
                     }
                     stun_advances_pattern false
@@ -2943,13 +2943,13 @@ Trampy {
         move_weights trampy_chaos
 
         pattern {
-            //do_random [attack *TrampyDrink TrampyDump TrampySpit TrampyFleas TrampySleep]
+            //do_random [attack *TrampyDrink TrampyDump TrampySpit TrampyFleas]
             do TrampyDump
             do TrampySpit
             do TrampyFleas
             do_priority [*TrampyDrink TrampyDrink]
             do attack
-            do TrampySleep
+            do TrampySpit
         }
 
         stun_advances_pattern false
