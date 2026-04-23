@@ -1353,8 +1353,8 @@ Chubs {
             move_then_do attack
         }
 
-        decision_weights blind
-        move_weights chubs_and_nubs_blind
+        decision_weights default
+        move_weights stay_close
     }
 }
 
@@ -1395,13 +1395,13 @@ Nubs {
         
         spells [
             NubsNuke
-            NubsGoop
+            NubsSpit
         ]
     }
 
     passives {
         Buddy Chubs
-        ImmediateAbilityReaction NubsGoop
+        ImmediateAbilityReaction NubsSpit
 		
 		BossRewards {
 			common NubsCollar
@@ -1412,22 +1412,22 @@ Nubs {
                 passives {
                     RandomizeAIWeightsEachTurn [
                         {
-                            decision_weights blind
-                            move_weights chubs_and_nubs_blind
+                            decision_weights default
+                            move_weights stay_close
                         }
 
                         {
-                            decision_weights blind
-                            move_weights chubs_and_nubs_blind
+                            decision_weights default
+                            move_weights stay_close
                         }
 
                         {
-                            decision_weights nubs_fakeblind
-                            move_weights chubs_and_nubs_blind
+                            decision_weights nubs_fakeblind //Lowkey no idea what this does so i'm gonna keep it in.
+                            move_weights stay_close
                         }
 
                         {
-                            decision_weights blind
+                            decision_weights default
                             move_weights stay_close_always_move
                         }
                     ]
@@ -1441,7 +1441,7 @@ Nubs {
                         do *NubsNuke
                     }
 
-                    decision_weights blind
+                    decision_weights default
                     move_weights chubs_and_nubs_rage
                 }
 
@@ -1465,7 +1465,7 @@ Nubs {
         }
 
         decision_weights blind
-        move_weights chubs_and_nubs_blind
+        move_weights stay_close
     }
 }
 

@@ -3458,6 +3458,7 @@ ChubsSpin {
     target {
         aoe_mode square
         knockback_mode character_to_tile
+        multihit 2
     }
     
     damage_instance {
@@ -3482,11 +3483,14 @@ ChubsSpinRage {
     target {
         aoe_mode square
         knockback_mode character_to_tile
-        multihit 2
+        multihit 3
     }
     
     damage_instance {
         damage 5+bonus_melee_damage
+        effects{
+            Bruise 1
+        }
     }
 }
 
@@ -3509,6 +3513,8 @@ ChubsGoop {
 
         effects {
             Poison 2
+            Confusion [1, .25]
+            Stun [1, .25] 
         }
     }
 }
@@ -3523,6 +3529,9 @@ ChubsRage {
 
     damage_instance {
         effects {
+            Brace 2
+            DamageUp 3
+            SpeedUp 3
             FormChange {
                 form "Rage"
             }
@@ -3627,7 +3636,7 @@ NubsJump {
     
     target {
         min_range 2
-        max_range 2
+        max_range 4
         aoe_mode square
     }
 
@@ -3655,7 +3664,7 @@ NubsJump_AI { //nubs jump pretends its targeting like a spawn ability so he can 
 
     target {
         min_range 2
-        max_range 2
+        max_range 4
     }
 
     spawn {
@@ -20891,6 +20900,31 @@ TrampyKickAss {
             KnockUpAndAway {
                 distance 3
             }
+        }
+    }
+}
+
+NubsSpit {
+    template lobbed_attack
+
+    graphics {
+        animation spit
+		projectile Creepball
+    }
+
+    target {
+        target_mode direction
+        aoe_mode custom
+        custom_aoe [[1 0] [2 -1] [2 0] [2 1] [3 -1] [3 0] [3 1] [4 -1] [4 0] [4 1]]
+        max_targets 8
+    }
+
+    damage_instance {
+        damage 4+bonus_ranged_damage
+        
+        effects {
+            ChangeTile CreepTile
+            Poison 1
         }
     }
 }
