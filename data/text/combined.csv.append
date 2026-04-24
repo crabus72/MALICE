@@ -2130,8 +2130,7 @@ Può far levitare le rocce!","Move-se na direção do que lhe causa dano.
 Realiza um ataque de corpo na direção para a qual estiver olhando.
 Pode levitar rochas!",,,,
 ENEMY_CHUBS_NAME,Chubs,,Chub,Moignon tournoyant,Chubs,Chubs,Chubs,,,,
-ENEMY_CHUBS_DESC,"Blind.
-Shoots a Poison shot when damaged.
+ENEMY_CHUBS_DESC,"Shoots a Poison shot that has a 25% chance to inflict Stun and/or Confusion when damaged.
 Does a melee spin attack.",,"Sufre ceguera.
 Dispara un proyectil venenoso al sufrir daño.
 Lanza un ataque giratorio cuerpo a cuerpo.","Aveugle.
@@ -2144,8 +2143,7 @@ Esegue un attacco corpo a corpo rotante.","Cego.
 Dispara um tiro de veneno ao sofrer dano.
 Realiza um ataque corpo-a-corpo giratório.",,,,
 ENEMY_NUBS_NAME,Nubs,,Nub,Moignon sauteur,Nubs,Nubs,Nubs,,,,
-ENEMY_NUBS_DESC,"Blind.
-Lobs a Poison creep shot when damaged.
+ENEMY_NUBS_DESC,"Lobs a Poison creep barrage when damaged.
 Does a leap attack with Knockback.",,"Sufre ceguera.
 Dispara un proyectil de líquido tóxico venenoso al sufrir daño.
 Lanza un ataque con salto que inflige retroceso.","Aveugle.
