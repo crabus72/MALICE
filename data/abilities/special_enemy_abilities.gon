@@ -5236,6 +5236,7 @@ ButtFlip {
 
     damage_instance {
         effects {
+            Brace 1
             FormChange {
                 form "Down"
             }
@@ -5292,7 +5293,7 @@ ButtFart {
 
         aoe_mode standard
         min_aoe 1
-        max_aoe 1
+        max_aoe 2
 
         aoe_considers_character_size true
         aoe_excludes_self true
@@ -5305,6 +5306,7 @@ ButtFart {
 
         effects {
             Poison 4
+            Rot 2
         }
         
         elements [
@@ -20924,6 +20926,56 @@ NubsSpit {
         
         effects {
             ChangeTile CreepTile
+            Poison 1
+        }
+    }
+}
+
+ButtZombieAttack {
+    template melee_attack
+
+    graphics {
+        animation Default
+    }
+
+    cost {
+        cantrip true
+    }
+
+    damage_instance {
+        damage 8+bonus_melee_damage
+        
+        effects {
+            Rot 1
+            Bruise 1
+        }
+    }
+}
+
+GraveWormAttack {
+    template lobbed_attack
+    
+    meta {
+        name "ABILITY_LOBBEDSHOT_NAME"
+        desc "ABILITY_LOBBEDSHOT_DESC"
+        animate_name false
+    }
+
+    target {
+        min_range 3
+        max_range 5+bonus_range
+    }
+    
+    self_damage {
+        effects {
+            RefreshMovePoints 1
+        }
+    }
+
+    damage_instance {
+        damage 4+bonus_ranged_damage
+        effects {
+            SpiderInfested 1
             Poison 1
         }
     }

@@ -317,16 +317,16 @@ Non morto.","Lança unidades que consegue alcançar.
 Realiza uma investida em uma direção aleatória no final de seu turno.
 Morto-vivo.",,,,
 ENEMY_GRAVEWORM_NAME,Grave Worm,,Lombriz sepulcral,Ver sépulcral,Grabwurm,Verme della Tomba,Verme de Tumba,,,,
-ENEMY_GRAVEWORM_DESC,"Ranged attacker.
-Digs away when damaged.",,"Atacante a distancia.
+ENEMY_GRAVEWORM_DESC,"Ranged attacker that inflicts Poison and Infested.
+Digs away when damaged and after attacking.",,"Atacante a distancia.
 Se aleja al sufrir daño.","Attaque à distance.
 S'enfuit en creusant un tunnel quand on le touche.","Fernkämpfer.
 Vergräbt sich, wenn er Schaden erleidet.","Specialista degli attacchi a distanza.
 Quando subisce danno si scava una via di fuga.","Agressor corpo-a-corpo.
 Entra na terra ao sofrer dano.",,,,
 ENEMY_BUTTZOMBIE_NAME,Butt Zombie,,Zombi ojete,Zombie-fesses,Backenzombie,Zombie Sedere,Zumbi Traseiro,,,,
-ENEMY_BUTTZOMBIE_DESC,"Will attack all adjacent units with its melee attack when its backside is underground.
-Goes upside down when damaged.
+ENEMY_BUTTZOMBIE_DESC,"Will attack all adjacent units with its melee attack when its backside is underground, inflicting Rot and Bruise.
+Goes upside down when damaged, gaining Brace. Will counter with a medium-sized fart, inflicting Poison 4 and Rot 2 
 Undead.",,"Ataca a todas las unidades adyacentes con el ataque cuerpo a cuerpo cuando tiene el pandero bajo tierra.
 Se pone del revés al sufrir daño.
 Muerto viviente.","Attaque toutes les unités adjacentes au corps-à-corps quand son derrière est sous terre.

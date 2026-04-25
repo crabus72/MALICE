@@ -2037,7 +2037,7 @@ GraveWorm {
 
     abilities {
         move Teleport
-        attack BasicRanged
+        attack GraveWormAttack
         
         spells [
 
@@ -2046,12 +2046,23 @@ GraveWorm {
 
     passives {
         MoveWhenDamaged move
+        
     }
     
     ai {
-        brain GenericBrain
+        brain PatternBrain
+        virtual_abilities {
+            MoveClose {
+                ability move
+                move_for_ability attack
+                move_weights stay_close_avoid_allies
+            }
+        }
         decision_weights default
         move_weights random
+        pattern {
+                        do_all [MoveClose, attack, move]
+                    }
     }
 }
 
@@ -2076,8 +2087,8 @@ ButtZombie {
     
     properties {
         tag zombie
-        health 15
-        movement 5
+        health 30
+        movement 8
         faction enemies
         corpse_health 0
         act_points 4
@@ -2085,7 +2096,7 @@ ButtZombie {
 
     abilities {
         move Teleport
-        attack BasicMelee
+        attack ButtZombieAttack
         
         spells [
             ButtFlip
@@ -2154,6 +2165,7 @@ ButtZombie {
                 }
                 passives {
                     BackstabAllDirections 1
+                    AbilityReaction ButtFart
                 }
             }
 
