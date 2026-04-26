@@ -1787,7 +1787,7 @@ Scary {
         tag ghost
         faction enemies
         movement 4
-        health 14
+        health 20
         flying true
         corpse_health 0
     }
@@ -1802,7 +1802,11 @@ Scary {
     }
 
     passives {
+        DodgeChance 20%
         Undead 1
+        MoveWhenDamaged {
+		weights blind_move_far
+		}
 
         CharacterLightSource {
             color [.8, .9, 1]
@@ -1845,7 +1849,8 @@ Reaper {
         tag [ghost skeleton]
         faction enemies
         movement 2
-        health 18
+        health 22
+        shield 10
         corpse_health 0
         flying true
     }
@@ -1908,8 +1913,8 @@ TallRobes {
         tag [ghost skeleton]
         faction enemies
         movement 3
-        health 4
-        shield 6
+        health 10
+        shield 5
         flying true
         corpse_health 0
     }
@@ -1920,7 +1925,8 @@ TallRobes {
 
         spells [
             SpawnWisp
-            //RobesBuff
+            SpawnWisp2
+            RobesBuff
         ]
     }
 
@@ -1933,7 +1939,7 @@ TallRobes {
         brain PatternBrain
 
         pattern {
-            do_all [HexShot SpawnWisp]
+            do_all [*HexShot move SpawnWisp SpawnWisp2 RobesBuff]
         }
 
         decision_weights default
