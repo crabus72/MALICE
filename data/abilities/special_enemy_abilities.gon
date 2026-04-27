@@ -4345,7 +4345,7 @@ MegafetusSpin {
 }
 
 BadBone {
-    template straightshot_attack
+    template lobbed_attack
 
     graphics {
         animation throwobject
@@ -4359,7 +4359,8 @@ BadBone {
     }
 
     target {
-        max_aoe 10
+        min_range 1
+        max_range 5
     }
 
     damage_instance {
@@ -4367,6 +4368,7 @@ BadBone {
 
         effects {
             Stun [1 .15]
+            Bruise 1
         }
     }
 }
@@ -4375,7 +4377,7 @@ BadBone_copy {
 }
 
 GoodBone {
-    template straightshot_attack
+    template lobbed_attack
 
     graphics {
         animation throwobject
@@ -4397,6 +4399,8 @@ GoodBone {
 
         effects {
             Shield 5+bonus_ranged_damage
+            DiminishingHealthRegen 1
+            HeavyHits 1
         }
     }
 }
@@ -5200,6 +5204,10 @@ ShamblerToss {
     damage_instance {
         damage 5+bonus_melee_damage
         custom_additional_ai_weight toss_far
+        effects {
+            Stun 1
+            Poison 1
+        }
     }
 }
 
@@ -5217,7 +5225,7 @@ ShamblerDash {
     }
     
     target {
-        max_range 2
+        max_range 4
         consider_trample true
     }
     
@@ -5226,6 +5234,7 @@ ShamblerDash {
         knockback 1
     }
 }
+
 
 ButtFlip {
     template self_buff
@@ -21013,5 +21022,29 @@ SpawnWisp2 {
         object Wisp
         ai_base_score 9999
         faction self
+    }
+}
+
+ShamblerDash2 {
+    template dash_attack
+    class FullyAnimatedDashAttackAbility
+    
+    graphics {
+        animation attack
+        sync_frames 26
+    }
+    
+    cost {
+        mana 0
+    }
+    
+    target {
+        max_range 4
+        consider_trample true
+    }
+    
+    damage_instance {
+        damage 5+bonus_melee_damage
+        knockback 1
     }
 }

@@ -1202,6 +1202,7 @@ SkeletonCatCorpse {
         Undead 1
         StatusImmunity [Poison, Bleed]
         CountAsCorpse 1
+        BleedThorns 3
 
         TransformInXTurns {
             stacks 1
@@ -1249,7 +1250,7 @@ TallSkeletonCat {
         tag [cat skeleton]
         type cat
         health 0
-        shield 15
+        shield 25
 
         base_mana_regen 999
         faction enemies
@@ -1307,7 +1308,7 @@ TallSkeletonCatCorpse {
         tag [cat skeleton]
         type cat
         health 0
-        shield 1
+        shield 5
 
         faction enemies
         initiative 10
@@ -1325,6 +1326,7 @@ TallSkeletonCatCorpse {
         Undead 1
         StatusImmunity [Poison, Bleed]
         CountAsCorpse 1
+        BleedThorns 5
 
         TransformInXTurns {
             stacks 1

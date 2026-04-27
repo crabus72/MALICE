@@ -1745,6 +1745,7 @@ Spookie {
 
     passives {
         Undead 1
+        DodgeChance 20%
 
         CharacterLightSource {
             color [.8, .9, 1]
@@ -1975,6 +1976,7 @@ Shambler {
         health 28
         movement 3
         faction enemies
+        corpse_health 0
 
         size 2x2
         move_block everything_even_when_dead
@@ -1986,12 +1988,14 @@ Shambler {
 
         spells [
             ShamblerToss
+            ShamblerDash2
         ]
     }
 
     passives {
-        Trample 3
+        Trample 7
         Undead 1
+        TransformOnDeath SkeletonShambler
     }
     
     ai {
@@ -1999,7 +2003,7 @@ Shambler {
 
         virtual_abilities {
             DashRandomly {
-                ability ShamblerDash
+                ability [ShamblerDash ShamblerDash2]
                 decision_weights blind
             }
         }

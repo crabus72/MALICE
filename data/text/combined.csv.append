@@ -254,7 +254,7 @@ Aplica bruxaria em unidades que atacam.
 Morto-vivo.",,,,
 ENEMY_SPOOKIE_NAME,Spookie,,Fantasmito,Trouille,Spuki,Spauracchio,Sustinho,,,,
 ENEMY_SPOOKIE_DESC,"Its melee attack drains mana.
-Undead.",,"Su ataque cuerpo a cuerpo desgasta el maná.
+Undead. 20% Dodge Chance.",,"Su ataque cuerpo a cuerpo desgasta el maná.
 Muerto viviente.","Son attaque au corps-à-corps draine le mana.
 Mort-vivant.","Sein Nahkampfangriff saugt Mana ab.
 Untot.","Il suo attacco corpo a corpo assorbe mana.
@@ -303,9 +303,9 @@ Pode invocar fogos-fátuos.
 Torna-se um tateador ao morrer.
 Morto-vivo.",,,,
 ENEMY_SHAMBLER_NAME,Shambler,,Tambaleante,Molosse,Schlurfer,Barcollatore,Cambaleante,,,,
-ENEMY_SHAMBLER_DESC,"Will throw units it can reach.
-Lunges in a random direction at the end of its turn.
-Undead.",,"Lanza por los aires las unidades que tiene al alcance.
+ENEMY_SHAMBLER_DESC,"Will throw units it can reach, inflicting Stun and Poison.
+Can lunge twice in its turn.
+Undead. Transforms into a Skeleton Shambler when defeated.",,"Lanza por los aires las unidades que tiene al alcance.
 Arremete en una dirección al azar al final del turno.
 Muerto viviente.","Lance les unités à sa portée.
 Fonce dans une direction aléatoire à la fin de son tour.
@@ -1452,7 +1452,8 @@ Untot.","Resusciterà nel suo prossimo turno!
 Non morto.","Volta dos mortos no próximo turno!
 Morto-vivo.",,,,
 ENEMY_TALLSKELETONCAT_NAME,Tall Skeleton Cat,,Gato esquelético alto,Grand chat squelette,Große Skelettkatze,Gatto Scheletrico Alto,Gato Esqueleto Alto,,,,
-ENEMY_TALLSKELETONCAT_DESC,"Its ranged attack can also give [img:shield] to its allies.
+ENEMY_TALLSKELETONCAT_DESC,"Its ranged attack inflicts Bruise and a 15% chance to inflict Stun.
+Can also give [img:shield], Diminishing Health Regen and Heavy Hits to its allies.
 Will come back from the dead if its body isn't destroyed!
 Undead.",,"Su ataque a distancia también puede otorgar [img:shield] a los aliados.
 Regresa de entre los muertos si nadie destroza su cadáver.
