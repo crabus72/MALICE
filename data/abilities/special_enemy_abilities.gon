@@ -21036,6 +21036,7 @@ ShamblerDash2 {
     
     cost {
         mana 0
+        cantrip true
     }
     
     target {
